@@ -52,10 +52,17 @@
     <script src="<?php echo base_url()?>assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
     <!-- Datatables -->
     <script src="<?php echo base_url()?>assets/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Chart JS -->
+    <script src="<?php echo base_url()?>assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="<?php echo base_url()?>assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
     <!-- Kaiadmin JS -->
     <script src="<?php echo base_url()?>assets/js/kaiadmin.min.js"></script>
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="<?php echo base_url()?>assets/js/setting-demo2.js"></script>    
+    <script src="<?php echo base_url()?>assets/js/setting-demo2.js"></script>
+    <script src="<?php echo base_url()?>assets/js/setting-demo.js"></script>
+    <script src="<?php echo base_url()?>assets/js/demo.js"></script>    
 
   </head>
   <body>

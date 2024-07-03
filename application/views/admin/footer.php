@@ -22,6 +22,7 @@
         </footer>
       </div>
 
+
       <!-- Custom template | don't include it in your project! -->
       <div class="custom-template">
         <div class="title">Settings</div>
@@ -37,7 +38,7 @@
                 ></button>
                 <button
                   type="button"
-                  class="selected changeLogoHeaderColor"
+                  class="changeLogoHeaderColor"
                   data-color="blue"
                 ></button>
                 <button
@@ -148,7 +149,7 @@
                 ></button>
                 <button
                   type="button"
-                  class="changeTopBarColor"
+                  class="selected changeTopBarColor"
                   data-color="white"
                 ></button>
                 <br />
@@ -159,7 +160,7 @@
                 ></button>
                 <button
                   type="button"
-                  class="selected changeTopBarColor"
+                  class="changeTopBarColor"
                   data-color="blue2"
                 ></button>
                 <button
@@ -194,12 +195,12 @@
               <div class="btnSwitch">
                 <button
                   type="button"
-                  class="selected changeSideBarColor"
+                  class="changeSideBarColor"
                   data-color="white"
                 ></button>
                 <button
                   type="button"
-                  class="changeSideBarColor"
+                  class="selected changeSideBarColor"
                   data-color="dark"
                 ></button>
                 <button
@@ -216,6 +217,8 @@
         </div>
       </div>
       <!-- End Custom template -->
+
+      
     </div>
 
     <script>

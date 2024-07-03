@@ -35,7 +35,7 @@
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url('admin/manage_department'); ?>">
-                  <i class="fas fas fa-building"></i>
+                  <i class="fas fa-building"></i>
                   <p>Department</p>
                 </a>
               </li>
