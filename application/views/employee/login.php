@@ -30,6 +30,14 @@
                                 </div>
 
                                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block" type="submit">Login</button>
+
+
+                                <div class="row mb-4">
+                                <div class="col">
+                                  <!-- Simple link -->
+                                  <a href="<?php echo base_url('home'); ?>">Home</a>
+                                </div>
+                              </div>
                             </form>
 
                         </div>
