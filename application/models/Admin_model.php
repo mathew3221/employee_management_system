@@ -80,9 +80,9 @@ class Admin_model extends CI_Model {
         return $this->db->update('leave_type', $data);
     }
 
-    public function delete_leave_type($leaveTypeId) {
-        $this->db->where('id', $leaveTypeId);
-        return $this->db->delete('leave_types');
+    public function delete_leavetype($id) {
+        $this->db->where('id', $id);
+        return $this->db->delete('leave_type');
     }
 
 

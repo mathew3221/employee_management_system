@@ -329,7 +329,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="<?php echo base_url()?>assets/img/profile.jpg"
+                        src="<?php echo base_url()?>assets/img/default-avatar.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -345,7 +345,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="<?php echo base_url()?>assets/img/profile.jpg"
+                              src="<?php echo base_url()?>assets/img/default-avatar.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />

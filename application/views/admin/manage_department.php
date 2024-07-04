@@ -17,14 +17,14 @@
                             <table id="basic-datatables" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="col-1">#</th>
                                         <th>Department Name</th>
                                         <th class="col-3">Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="col-1">#</th>
                                         <th>Department Name</th>
                                         <th class="col-3">Action</th>
                                     </tr>

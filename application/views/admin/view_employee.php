@@ -1,6 +1,6 @@
 <?php if (!empty($employee)) { ?>
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover table-sm">
             <tbody>
                 <?php foreach ($employee as $index => $emp) { ?>
                     <tr>

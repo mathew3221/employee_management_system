@@ -1,34 +1,27 @@
 <?php if (!empty($employee)) { ?>
     <div class="modal-body">
-        <?php foreach ($employee as $ee) { ?>
-            <div class="card mb-3">
-                <div class="card-header">
-                    <!-- <h5 class="card-title mb-0"><strong><?php echo $ee['first_name'] . ' ' . $ee['last_name']; ?></strong></h5> -->
-                    <p class="card-text mb-1"><?php echo $ee['added_on']; ?></p>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h6 class="text-muted"><strong>Salary:</strong></h6>
-                                <p class="card-text"><?php echo $ee['salary']; ?></p>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="text-muted"><strong>Total Salary:</strong></h6>
-                                <p class="card-text"><?php echo $ee['total_salary']; ?></p>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h6 class="text-muted"><strong>Allowance:</strong></h6>
-                                <p class="card-text"><?php echo $ee['allowance']; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Added On</th>
+                        <th>Salary</th>
+                        <th>Allowance</th>
+                        <th>Total Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($employee as $ee) { ?>
+                        <tr>
+                            <td><?php echo date('d/M/Y', strtotime($ee['added_on'])); ?></td>
+                            <td><?php echo $ee['salary']; ?></td>
+                            <td><?php echo $ee['allowance']; ?></td>
+                            <td><?php echo $ee['total_salary']; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 <?php } else { ?>
     <div class="modal-body">

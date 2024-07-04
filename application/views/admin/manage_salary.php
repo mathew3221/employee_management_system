@@ -144,7 +144,7 @@
 
 <!-- View Salary Modal -->
 <div class="modal fade" id="viewsalaryModal" tabindex="-1" aria-labelledby="viewsalaryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="viewsalaryModalLabel">View Employee Details</h5>

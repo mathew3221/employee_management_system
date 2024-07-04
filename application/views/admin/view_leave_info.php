@@ -1,19 +1,24 @@
 <?php if (!empty($leave)) { ?>
     <div class="modal-body">
-        <?php foreach ($leave as $le) { ?>
-            <div class="card mb-3">
-                <div class="card-header">
-                    <!-- <h4 class="card-title mb-0"><?php echo $le['first_name'] . ' ' . $le['last_name']; ?></h4> -->
-                    <h5 class="card-subtitle mb-1"><strong><?php echo $le['leave_type']; ?></strong></h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <p><strong>From:</strong> <?php echo date('M d, Y', strtotime($le['from_date'])); ?></p>
-                            <p><strong>To:</strong> <?php echo date('M d, Y', strtotime($le['to_date'])); ?></p>
-                        </div>
-                        <div class="col-sm-4">
-                            <p><strong>Status:</strong> 
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Status</th>
+                        <th>Admin Remark</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($leave as $le) { ?>
+                        <tr>
+                            <td><strong><?php echo $le['leave_type']; ?></strong></td>
+                            <td><?php echo date('d/M/Y', strtotime($le['from_date'])); ?></td>
+                            <td><?php echo date('d/M/Y', strtotime($le['to_date'])); ?></td>
+                            <td>
                                 <?php
                                 if ($le['status'] == 0) {
                                     echo '<span class="badge bg-warning">Pending</span>';
@@ -23,18 +28,14 @@
                                     echo '<span class="badge bg-danger">Rejected</span>';
                                 }
                                 ?>
-                            </p>
-                            <?php if (!empty($le['admin_remark'])) { ?>
-                                <p><strong>Admin Remark:</strong> <?php echo $le['admin_remark']; ?></p>
-                            <?php } ?>
-                        </div>
-                        <div class="col-sm-4">
-                            <p class="card-text"><strong>Description:</strong><br><?php echo $le['description']; ?></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+                            </td>
+                            <td><?php echo !empty($le['admin_remark']) ? $le['admin_remark'] : '-'; ?></td>
+                            <td><?php echo $le['description']; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 <?php } else { ?>
     <div class="modal-body">

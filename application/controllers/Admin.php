@@ -99,14 +99,14 @@ class Admin extends CI_Controller {
 
 
 
-   public function delete_department() {
-    $id = $this->input->post('id');
-    if ($this->Admin_model->delete_department($id)) {
-        echo json_encode(['status' => 'success']);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Delete failed']);
+    function delete_department() {
+        $id = $this->input->post('id');
+        if ($this->Admin_model->delete_department($id)) {
+            echo json_encode(['status' => 'success']);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Delete failed']);
+        }
     }
-}
 
 
 
@@ -169,9 +169,9 @@ class Admin extends CI_Controller {
 
 
 
-    public function delete_leave_type() {
-        $leaveTypeId = $this->input->post('leaveTypeId');
-        if ($this->Admin_model->delete_leave_type($leaveTypeId)) {
+    function delete_leavetype() {
+        $id = $this->input->post('id');
+        if ($this->Admin_model->delete_leavetype($id)) {
             echo json_encode(['status' => 'success']);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Delete failed']);

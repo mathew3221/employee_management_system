@@ -17,14 +17,14 @@
               <table id="basic-datatables" class="display table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th class="col-1">#</th>
                     <th>Leave Type</th>
                     <th class="col-3">Action</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>#</th>
+                    <th class="col-1">#</th>
                     <th>Leave Type</th>
                     <th class="col-3">Action</th>
                   </tr>
@@ -41,7 +41,7 @@
                         <td><?php echo $lt['leave_type']; ?></td>
                         <td>
                           <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#editleaveModal<?php echo $lt['id']; ?>"><i class="fas fas fa-edit"></i></button>
-                          <button type="button" class="btn btn-danger btn-sm delete-leavetype" data-leave-id="<?php echo $lt['id']; ?>"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm" title="delete" onclick="delete_leavetype(<?php echo $lt['id']; ?>);"><i class="fas fa-trash-alt"></i></button>
                         </td>
                       </tr>
                     <?php endforeach; ?>
@@ -118,22 +118,19 @@
         }
       });
     });
-
-    // Function for deleting leave types
-    $('.delete-leavetype').click(function () {
-      var leaveTypeId = $(this).data('leave-id');
-
-      if (confirm("Are you sure you want to delete this leave type?")) {
-        $.ajax({
-          type: "POST",
-          url: "<?php echo base_url('admin/delete_leave_type'); ?>",
-          data: { leaveTypeId: leaveTypeId },
-          success: function (response) {
-            location.reload(); // Reload the page after successful deletion
-          },
-          
-        });
-      }
-    });
   });
+
+  function delete_leavetype(id) {
+        var confirmDelete = confirm("Are you sure you want to delete?");
+        if (confirmDelete) {
+            $.ajax({
+                url: '<?php echo base_url('admin/delete_leavetype'); ?>',
+                method: 'POST',
+                data: { id: id },
+                success: function(response) {
+                    location.reload();
+                },
+            });
+        }
+    }
 </script>
