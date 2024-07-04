@@ -7,7 +7,7 @@
                         <th>Photo</th>
                         <td>
                             <?php if (!empty($emp['photo'])) : ?>
-                                <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid" width="150" height="150">
+                                <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid" width="70" height="70">
                             <?php else : ?>
                                 No photo available
                             <?php endif; ?>
@@ -47,11 +47,11 @@
                     </tr>
                     <tr>
                         <th>Date of Birth:</th>
-                        <td><?php echo $emp['date_of_birth']; ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($emp['date_of_birth'])); ?></td>
                     </tr>
                     <tr>
                         <th>Date of Joining:</th>
-                        <td><?php echo $emp['date_of_joining']; ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($emp['date_of_joining'])); ?></td>
                     </tr>
                     <tr>
                         <th>Address:</th>
