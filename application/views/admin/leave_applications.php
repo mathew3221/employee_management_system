@@ -1,26 +1,5 @@
 <div class="container">
   <div class="page-inner">
-    <!-- <div class="page-header">
-      <ul class="breadcrumbs mb-3">
-        <li class="nav-home">
-          <a href="#">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url('admin/dashboard'); ?>">Admin</a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="#">Leave Applicatio</a>
-        </li>
-      </ul>
-    </div> -->
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -38,27 +17,27 @@
               >
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>#</th>
                         <th>Employee Name</th>
                         <th>Leave Type</th>
                         <th>From Date</th>
                         <th>To Date</th>
                         <th>Description</th>
                         <th>Status</th>
-                        <th>Admin Remark</th>
+                        <!-- <th>Admin Remark</th> -->
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>No</th>
+                        <th>#</th>
                         <th>Employee Name</th>
                         <th>Leave Type</th>
                         <th>From Date</th>
                         <th>To Date</th>
                         <th>Description</th>
                         <th>Status</th>
-                        <th>Admin Remark</th>
+                        <!-- <th>Admin Remark</th> -->
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -101,7 +80,7 @@
                                     ?>
                                     <span class="<?php echo $status_class; ?>"><?php echo $status_label; ?></span>
                                 </td>
-                                <td><?php echo $application['admin_remark']; ?></td>
+                                <!-- <td><?php echo $application['admin_remark']; ?></td> -->
                                 <td>
                                     <button class="btn btn-info btn-sm" title="Take Action" data-bs-toggle="modal" data-bs-target="#leaveactionModal" onclick="leave_action(<?php echo $application['id']; ?>);"><i class="fas fa-external-link-alt"></i></button>
                                 </td>
@@ -136,23 +115,6 @@
             }
         });
     }
-
-
-     document.getElementById('searchBar').addEventListener('input', function() {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('tbody tr');
-
-        rows.forEach(row => {
-            let name = row.cells[1].innerText.toLowerCase();
-            let leaveType = row.cells[2].innerText.toLowerCase();
-            let status = row.cells[6].innerText.toLowerCase();
-            if (name.includes(filter) || leaveType.includes(filter) || status.includes(filter)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
 
 
 

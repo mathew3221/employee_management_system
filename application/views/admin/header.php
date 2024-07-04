@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="<?php echo base_url()?>assets/img/kaiadmin/favicon.ico"
+      href="<?php echo base_url()?>assets/img/mjlogo.png"
       type="image/x-icon"
     />
 
@@ -38,13 +38,10 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/plugins.min.css" />
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/demo.css" />
-
 
     <!--   Core JS Files   -->
     <script src="<?php echo base_url()?>assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
+    <!-- <script src="<?php echo base_url()?>assets/js/jquery.min.js"></script> -->
     <script src="<?php echo base_url()?>assets/js/core/popper.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/core/bootstrap.min.js"></script>
 
@@ -59,10 +56,7 @@
     <script src="<?php echo base_url()?>assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
     <!-- Kaiadmin JS -->
     <script src="<?php echo base_url()?>assets/js/kaiadmin.min.js"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="<?php echo base_url()?>assets/js/setting-demo2.js"></script>
-    <script src="<?php echo base_url()?>assets/js/setting-demo.js"></script>
-    <script src="<?php echo base_url()?>assets/js/demo.js"></script>    
+      
 
   </head>
   <body>

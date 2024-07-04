@@ -11,7 +11,7 @@
               </ul>
             </nav>
             <div class="copyright">
-              2024, made with by
+              2024, made by
               <a href="http://www.themekita.com">Mathew John</a>
             </div>
             <!-- <div>

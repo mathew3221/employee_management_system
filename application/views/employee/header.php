@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="<?php echo base_url()?>assets/img/kaiadmin/favicon.ico"
+      href="<?php echo base_url()?>assets/img/mjlogo.png"
       type="image/x-icon"
     />
 

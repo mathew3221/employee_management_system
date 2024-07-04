@@ -47,10 +47,10 @@ class Admin_model extends CI_Model {
         return $this->db->update('departments', $data);
     }
 
-    function delete_department($id) {
-        $this->db->where('id', $id);
-        return $this->db->delete('departments');
-    }
+    public function delete_department($id) {
+    $this->db->where('id', $id);
+    return $this->db->delete('departments');
+}
 
 
 
@@ -80,10 +80,11 @@ class Admin_model extends CI_Model {
         return $this->db->update('leave_type', $data);
     }
 
-    function delete_leave_type($id) {
-        $this->db->where('id', $id);
-        return $this->db->delete('leave_type');
+    public function delete_leave_type($leaveTypeId) {
+        $this->db->where('id', $leaveTypeId);
+        return $this->db->delete('leave_types');
     }
+
 
 
 

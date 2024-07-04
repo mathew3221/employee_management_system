@@ -45,7 +45,7 @@
               >
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>#</th>
                         <th>Emp ID</th>
                         <th>Email</th>
                         <th>Department</th>
@@ -55,7 +55,7 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>No</th>
+                        <th>#</th>
                         <th>Emp ID</th>
                         <th>Name</th>
                         <th>Department</th>
@@ -196,7 +196,7 @@
                             <small id="confirmPasswordError" class="form-text text-danger d-none">Passwords do not match.</small>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

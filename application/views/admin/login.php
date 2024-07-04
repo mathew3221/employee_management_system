@@ -4,47 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Employee</title>
+    <link
+      rel="icon"
+      href="<?php echo base_url()?>assets/img/mjlogo.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
     <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 <body>
-    <section class="vh-100" style="background-color: #D6D6D6;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                        <div class="card-body p-5 text-center">
-
-                            <h3 class="mb-5">Sign in</h3>
-
-                            <form id="loginForm" action="<?php echo base_url('employee/login'); ?>" method="post">
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" required>
-                                    <label class="form-label" for="typeEmailX-2">Email</label>
-                                </div>
-
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password" required>
-                                    <label class="form-label" for="typePasswordX-2">Password</label>
-                                </div>
-
-                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block" type="submit">Login</button>
-
-                                <div class="row mb-4">
-                                <div class="col">
-                                  <!-- Simple link -->
-                                  <a href="<?php echo base_url('home'); ?>">Home</a>
-                                </div>
-                              </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Login 10 - Bootstrap Brain Component -->
+<section class="bg-light py-3 py-md-5 py-xl-8">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+        <div class="mb-5">
+          <h4 class="text-center mb-4">Welcome back you've been missed!</h4>
+          
         </div>
-    </section>
+        <div class="card border border-light-subtle rounded-4">
+          <div class="card-body p-3 p-md-4 p-xl-5">
+            <form id="loginForm" action="<?php echo base_url('admin/login'); ?>" method="post">
+              <p class="text-center mb-4">sign in using email</p>
+              <div class="row gy-3 overflow-hidden">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                    <label for="email" class="form-label">Email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                    <label for="password" class="form-label">Password</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
+                    <label class="form-check-label text-secondary" for="remember_me">
+                      Keep me logged in
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" type="submit">Log in</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-4">
+          <a href="#!" class="link-secondary text-decoration-none">Create new account</a>
+          <a href="<?php echo base_url('home'); ?>" class="link-secondary text-decoration-none">Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <script>
         $(document).ready(function() {

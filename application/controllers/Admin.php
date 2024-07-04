@@ -99,19 +99,15 @@ class Admin extends CI_Controller {
 
 
 
-   function delete_department() {
-        $department_id = $this->input->post('department_id');
-        if (!empty($department_id)) {
-            $deleted = $this->Admin_model->delete_department($department_id);
-            if ($deleted) {
-                echo "Department deleted successfully.";
-            } else {
-                echo "Failed to delete department. Please try again.";
-            }
-        } else {
-            echo "Department ID is required.";
-        }
+   public function delete_department() {
+    $id = $this->input->post('id');
+    if ($this->Admin_model->delete_department($id)) {
+        echo json_encode(['status' => 'success']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Delete failed']);
     }
+}
+
 
 
 
@@ -173,19 +169,15 @@ class Admin extends CI_Controller {
 
 
 
-    function delete_leave_type() {
+    public function delete_leave_type() {
         $leaveTypeId = $this->input->post('leaveTypeId');
-        if (!empty($leaveTypeId)) {
-            $deleted = $this->Admin_model->delete_leave_type($leaveTypeId);
-            if ($deleted) {
-                echo "Leave type deleted successfully.";
-            } else {
-                echo "Failed to delete leave type. Please try again.";
-            }
+        if ($this->Admin_model->delete_leave_type($leaveTypeId)) {
+            echo json_encode(['status' => 'success']);
         } else {
-            echo "Leave type ID is required.";
+            echo json_encode(['status' => 'error', 'message' => 'Delete failed']);
         }
     }
+
 
 
 

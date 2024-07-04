@@ -45,7 +45,7 @@
               >
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Department</th>
                         <th>Salary</th>
@@ -56,7 +56,7 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Department</th>
                         <th>Salary</th>
@@ -135,7 +135,7 @@
                         <label for="total_salary" class="form-label">Total Salary</label>
                         <input type="text" class="form-control" id="total_salary" name="total_salary" readonly>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                 </form>
             </div>
         </div>
