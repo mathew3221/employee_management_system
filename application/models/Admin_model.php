@@ -275,6 +275,20 @@ class Admin_model extends CI_Model {
 
 
 
+    function view_leave_info($id)
+    {
+        $this->db->select('leave_applications.*, employees.first_name, employees.last_name, leave_type.leave_type');
+        $this->db->from('leave_applications');
+        $this->db->join('employees', 'leave_applications.employee_id = employees.id');
+        $this->db->join('leave_type', 'leave_applications.leave_type = leave_type.id');
+        $this->db->where('leave_applications.id', $id);
+        $res = $this->db->get()->result_array();
+        return $res;
+    }
+
+
+
+
 
     function update_leave_application($id, $data) {
         $this->db->where('id', $id);

@@ -77,10 +77,10 @@
                             <tr>
                                 <td><?php echo $index + 1; ?></td>
                                 <td><?php echo $leave['leave_type']; ?></td>
-                                <td><?php echo $leave['from_date']; ?></td>
-                                <td><?php echo $leave['to_date']; ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($leave['from_date'])); ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($leave['to_date'])); ?></td>
                                 <td><?php echo $leave['description']; ?></td>
-                                <td><?php echo $leave['created_at']; ?></td>
+                                <td><?php echo date('d-M-Y, h:i A', strtotime($leave['created_at'])); ?></td>
                                 <td><?php echo $leave['admin_remark']; ?></td>
                                 <td>
                                     <?php if ($leave['status'] == 0): ?>

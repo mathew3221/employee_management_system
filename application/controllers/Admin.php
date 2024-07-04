@@ -273,6 +273,15 @@ class Admin extends CI_Controller {
 
 
 
+    function employee_leave_info() {
+        $data=array();
+        $id=$_POST['id'];
+        $data['leave']=$this->Admin_model->get_leave_application_info($id);
+        $this->load->view('admin/employee_leave_info',$data); 
+    }
+
+
+
 
     
 
@@ -459,6 +468,15 @@ class Admin extends CI_Controller {
 
 
 
+    function view_leave_info() {
+        $data=array();
+        $id=$_POST['id'];
+        $data['leave']=$this->Admin_model->view_leave_info($id);
+        $this->load->view('admin/view_leave_info',$data); 
+    }
+
+
+
 
     public function update_leave_application() {
         $id = $this->input->post('id');
@@ -477,12 +495,7 @@ class Admin extends CI_Controller {
 
 
 
-    function view_leave_info() {
-        $data=array();
-        $id=$_POST['id'];
-        $data['leave']=$this->Admin_model->get_leave_application_info($id);
-        $this->load->view('admin/view_leave_info',$data); 
-    }
+    
 
 
 

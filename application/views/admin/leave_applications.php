@@ -22,7 +22,7 @@
                         <th>Leave Type</th>
                         <th>From Date</th>
                         <th>To Date</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Status</th>
                         <!-- <th>Admin Remark</th> -->
                         <th>Action</th>
@@ -35,7 +35,7 @@
                         <th>Leave Type</th>
                         <th>From Date</th>
                         <th>To Date</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Status</th>
                         <!-- <th>Admin Remark</th> -->
                         <th>Action</th>
@@ -52,9 +52,9 @@
                                 <td><?php echo $index + 1; ?></td>
                                 <td><?php echo $application['first_name'] . ' ' . $application['last_name']; ?></td>
                                 <td><?php echo $application['leave_type']; ?></td>
-                                <td><?php echo $application['from_date']; ?></td>
-                                <td><?php echo $application['to_date']; ?></td>
-                                <td><?php echo $application['description']; ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($application['from_date'])); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($application['to_date'])); ?></td>
+                                <!-- <td><?php echo $application['description']; ?></td> -->
                                 <td>
                                     <?php
                                     $status_label = '';
@@ -82,7 +82,8 @@
                                 </td>
                                 <!-- <td><?php echo $application['admin_remark']; ?></td> -->
                                 <td>
-                                    <button class="btn btn-info btn-sm" title="Take Action" data-bs-toggle="modal" data-bs-target="#leaveactionModal" onclick="leave_action(<?php echo $application['id']; ?>);"><i class="fas fa-external-link-alt"></i></button>
+                                    <button class="btn btn-info btn-sm" title="info" data-bs-toggle="modal" data-bs-target="#vieweleaveModal" onclick="view_leave_info(<?php echo $application['id']; ?>);"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" title="Take Action" data-bs-toggle="modal" data-bs-target="#leaveactionModal" onclick="leave_action(<?php echo $application['id']; ?>);"><i class="fas fa-external-link-alt"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -104,6 +105,23 @@
     </div>
 </div>
 
+
+
+
+<div class="modal fade" id="vieweleaveModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="viewModalLabel">Details</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="viewleaveinfo">
+                <!-- Content loaded via AJAX -->
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     function leave_action(id){
         $.ajax({
@@ -112,6 +130,20 @@
             data: {id: id},
             success: function(response){
                 $('#leaveactionContent').html(response);
+            }
+        });
+    }
+
+
+
+
+    function view_leave_info(id) {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . 'admin/view_leave_info'; ?>',
+            data: {id: id},
+            success: function(response) {
+                $('#viewleaveinfo').html(response);
             }
         });
     }

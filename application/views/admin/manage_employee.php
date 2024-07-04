@@ -75,10 +75,10 @@
                                 <td><?php echo $employee['employee_id']; ?></td>
                                 <td><?php echo $employee['first_name'] . ' ' . $employee['last_name']; ?></td>
                                 <td><?php echo $employee['department_name']; ?></td>
-                                <td><?php echo $employee['date_of_joining']; ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($employee['date_of_joining'])); ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" title="info" data-bs-toggle="modal" data-bs-target="#viewemployeeModal" onclick="view_employee(<?php echo $employee['id']; ?>);"><i class="fas fa-eye"></i></button>
-                                    <button class="btn btn-success btn-sm" title="edit" data-bs-toggle="modal" data-bs-target="#editemployeeModal" onclick="edit_employee(<?php echo $employee['id']; ?>);"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-secondary btn-sm" title="edit" data-bs-toggle="modal" data-bs-target="#editemployeeModal" onclick="edit_employee(<?php echo $employee['id']; ?>);"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-warning btn-sm" title="salary" data-bs-toggle="modal" data-bs-target="#viewsalaryModal" onclick="view_salary(<?php echo $employee['id']; ?>);"><i class="fas fa-money-bill-alt"></i></button>
                                     <button class="btn btn-danger btn-sm" title="leave" data-bs-toggle="modal" data-bs-target="#viewleaveModal" onclick="view_leave(<?php echo $employee['id']; ?>);"><i class="fas fa-calendar-alt"></i></button>
                                     <button class="btn <?php echo ($employee['employee_status'] == 1) ? 'btn-success btn-sm' : 'btn-danger btn-sm'; ?>" onclick="toggleStatus(<?php echo $employee['id']; ?>, <?php echo $employee['employee_status']; ?>);">
@@ -450,7 +450,7 @@
         function view_leave(id) {
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url() . 'admin/view_leave_info'; ?>',
+                url: '<?php echo base_url() . 'admin/employee_leave_info'; ?>',
                 data: {id: id},
                 success: function(response) {
                     $('#viewleave').html(response);

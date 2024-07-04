@@ -14,9 +14,9 @@
                     <?php foreach ($employee as $ee) { ?>
                         <tr>
                             <td><?php echo date('d/M/Y', strtotime($ee['added_on'])); ?></td>
-                            <td><?php echo $ee['salary']; ?></td>
-                            <td><?php echo $ee['allowance']; ?></td>
-                            <td><?php echo $ee['total_salary']; ?></td>
+                            <td>&#8377; <?php echo number_format($ee['salary'], 2); ?></td>
+                            <td>&#8377; <?php echo number_format($ee['allowance'], 2); ?></td>
+                            <td>&#8377; <?php echo number_format($ee['total_salary'], 2); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -25,6 +25,6 @@
     </div>
 <?php } else { ?>
     <div class="modal-body">
-        <p class="text-muted">No employee data available.</p>
+        <p class="text-muted">No salary data available.</p>
     </div>
 <?php } ?>

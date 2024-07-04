@@ -62,10 +62,10 @@
                         <?php foreach ($salary as $index => $sy): ?>
                             <tr>
                                 <td><?php echo $index + 1; ?></td>
-                                <td><?php echo $sy['salary']; ?></td>
-                                <td><?php echo $sy['allowance']; ?></td>
-                                <td><?php echo $sy['total_salary']; ?></td>
-                                <td><?php echo $sy['added_on']; ?></td>
+                                <td>&#8377; <?php echo number_format($sy['salary'], 2); ?></td>
+                                <td>&#8377; <?php echo number_format($sy['allowance'], 2); ?></td>
+                                <td>&#8377; <?php echo number_format($sy['total_salary'], 2); ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($sy['added_on'])); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

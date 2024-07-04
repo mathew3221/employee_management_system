@@ -76,9 +76,9 @@
                                 <td><?php echo $i + 1; ?></td>
                                 <td><?php echo $es['first_name'] . ' ' . $es['last_name']; ?></td>
                                 <td><?php echo $es['department_name']; ?></td>
-                                <td><?php echo $es['salary']; ?></td>
-                                <td><?php echo $es['allowance']; ?></td>
-                                <td><?php echo $es['total_salary']; ?></td>
+                                <td>&#8377; <?php echo number_format($es['salary'], 2); ?></td>
+                                <td>&#8377; <?php echo number_format($es['allowance'], 2); ?></td>
+                                <td>&#8377; <?php echo number_format($es['total_salary'], 2); ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" title="View" data-bs-toggle="modal" data-bs-target="#viewsalaryModal" onclick="view_salary(<?php echo $es['employee']; ?>);">
                                         <i class="fas fa-eye"></i>
