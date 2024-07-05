@@ -1,26 +1,5 @@
 <div class="container">
   <div class="page-inner">
-    <!-- <div class="page-header">
-      <ul class="breadcrumbs mb-3">
-        <li class="nav-home">
-          <a href="#">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url('admin/dashboard'); ?>">Admin</a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="#">Salary</a>
-        </li>
-      </ul>
-    </div> -->
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -110,37 +89,52 @@
             </div>
             <div class="modal-body">
                 <form id="addEmployeeForm" action="<?php echo base_url('admin/save_salary'); ?>" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="department_name" class="form-label">Department</label>
-                        <select class="form-select" id="department" name="department" required>
-                            <option value="">Select Department</option>
-                            <?php foreach ($departments as $dt) : ?>
-                                <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="department" class="form-label">Department</label>
+                            <select class="form-select" id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <?php foreach ($departments as $dt) : ?>
+                                    <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="employee" class="form-label">Employee</label>
+                            <select class="form-select" id="employee" name="employee"></select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="salary" class="form-label">Salary (₹)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input type="number" class="form-control" id="salary" name="salary">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="allowance" class="form-label">Allowance (₹)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input type="number" class="form-control" id="allowance" name="allowance">
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="employee" class="form-label">Employee</label>
-                        <select class="form-select" id="employee" name="employee"></select>
+                        <label for="total_salary" class="form-label">Total Salary (₹)</label>
+                        <div class="input-group">
+                            <span class="input-group-text">₹</span>
+                            <input type="text" class="form-control" id="total_salary" name="total_salary" readonly>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="salary" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="salary" name="salary">
-                    </div>
-                    <div class="mb-3">
-                        <label for="allowance" class="form-label">Allowance</label>
-                        <input type="number" class="form-control" id="allowance" name="allowance">
-                    </div>
-                    <div class="mb-3">
-                        <label for="total_salary" class="form-label">Total Salary</label>
-                        <input type="text" class="form-control" id="total_salary" name="total_salary" readonly>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    <button type="submit" class="btn btn-primary">Add Salary</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <!-- View Salary Modal -->
 <div class="modal fade" id="viewsalaryModal" tabindex="-1" aria-labelledby="viewsalaryModalLabel" aria-hidden="true">
@@ -171,31 +165,43 @@
 
 
 <script>
-    $(document).ready(function () {
-        $('#salary, #allowance').on('input', function () {
-            var salary = parseFloat($('#salary').val()) || 0;
-            var allowance = parseFloat($('#allowance').val()) || 0;
-            var totalSalary = salary + allowance;
-            $('#total_salary').val(totalSalary.toFixed(2));
-        });
+    // Function to calculate and update the total salary
+    function updateTotalSalary(modalId) {
+        const salaryInput = document.querySelector(`${modalId} #salary`);
+        const allowanceInput = document.querySelector(`${modalId} #allowance`);
+        const totalSalaryInput = document.querySelector(`${modalId} #total_salary`);
 
-        $('#department').change(function() {
-            var departmentId = $(this).val();
-            if (departmentId) {
-                $.ajax({
-                    url: '<?php echo base_url('admin/get_employees_by_department'); ?>',
-                    type: 'POST',
-                    data: {department_id: departmentId},
-                    success: function(response) {
-                        $('#employee').html(response);
-                    }
-                });
-            } else {
-                $('#employee').html('<option value="">Select Employee</option>');
-            }
-        });
+        const salary = parseFloat(salaryInput.value) || 0;
+        const allowance = parseFloat(allowanceInput.value) || 0;
+        const totalSalary = salary + allowance;
+
+        totalSalaryInput.value = totalSalary.toFixed(2); // Fixed to 2 decimal places
+    }
+
+    // Event listeners for salary and allowance input fields
+    function addEventListeners(modalId) {
+        const salaryInput = document.querySelector(`${modalId} #salary`);
+        const allowanceInput = document.querySelector(`${modalId} #allowance`);
+
+        salaryInput.addEventListener('input', () => updateTotalSalary(modalId));
+        allowanceInput.addEventListener('input', () => updateTotalSalary(modalId));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize the total salary on page load for add modal
+        if (document.getElementById('addEmployeeModal')) {
+            addEventListeners('#addEmployeeModal');
+            updateTotalSalary('#addEmployeeModal');
+        }
+
+        // Initialize the total salary on page load for edit modal
+        if (document.getElementById('editsalaryModal')) {
+            addEventListeners('#editsalaryModal');
+            updateTotalSalary('#editsalaryModal');
+        }
     });
 
+    // Function to view salary details
     function view_salary(id) {
         $.ajax({
             type: 'POST',
@@ -207,38 +213,34 @@
         });
     }
 
-
-
-    function edit_salary(id){
+    // Function to edit salary details
+    function edit_salary(id) {
         $.ajax({
-            type:'POST',
-            url:'<?php echo base_url().'admin/edit_salary';?>',
-            data:{id:id},
-            success:function(response){
+            type: 'POST',
+            url: '<?php echo base_url() . 'admin/edit_salary'; ?>',
+            data: {id: id},
+            success: function(response) {
                 $('#editsalary').html(response);
-                
+                addEventListeners('#editsalaryModal'); // Add event listeners for the dynamically loaded content
+                updateTotalSalary('#editsalaryModal'); // Initialize the total salary for the dynamically loaded content
             }
         });
     }
 
-
-
-    document.getElementById('searchBar').addEventListener('input', function() {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('tbody tr');
-
-        rows.forEach(row => {
-            let name = row.cells[1].innerText.toLowerCase();
-            let department = row.cells[2].innerText.toLowerCase();
-            if (name.includes(filter) || department.includes(filter)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
+    // Department change event to load employees
+    $('#department').change(function() {
+        var departmentId = $(this).val();
+        if (departmentId) {
+            $.ajax({
+                url: '<?php echo base_url('admin/get_employees_by_department'); ?>',
+                type: 'POST',
+                data: {department_id: departmentId},
+                success: function(response) {
+                    $('#employee').html(response);
+                }
+            });
+        } else {
+            $('#employee').html('<option value="">Select Employee</option>');
+        }
     });
-
-
-
-
 </script>
