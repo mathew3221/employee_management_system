@@ -10,7 +10,9 @@ class Employee extends CI_Controller {
     }
 
     public function index() {
+        $this->load->view('employee/header');
         $this->load->view('employee/login');
+        $this->load->view('employee/footer');
     }
 
     public function login() {
@@ -59,6 +61,9 @@ class Employee extends CI_Controller {
         if ($this->session->userdata('employee_logged_in')) {
             $id = $this->session->userdata('employee_logged_in')['id'];
             $data['employee_details'] = $this->Employee_model->get_employee_profile($id);
+            $data['total_salary_given'] = $this->Employee_model->get_total_salary_given($id);
+            $data['applied_leave'] = $this->Employee_model->count_applied_leave($id);
+            $data['approved_leave'] = $this->Employee_model->count_approved_leave($id);
 
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
@@ -68,6 +73,7 @@ class Employee extends CI_Controller {
             redirect('employee');
         }
     }
+
 
     public function profile() {
         if ($this->session->userdata('employee_logged_in')) {

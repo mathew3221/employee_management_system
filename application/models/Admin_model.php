@@ -30,6 +30,27 @@ class Admin_model extends CI_Model {
         return $this->db->count_all('leave_type');
     }
 
+    public function count_leave_requests() {
+        return $this->db->count_all('leave_applications');
+    }
+
+    public function count_salary() {
+        return $this->db->count_all('salary');
+    }
+
+
+    public function count_pending_leave() {
+        $this->db->where('status', 0);
+        return $this->db->count_all_results('leave_applications');
+    }
+
+
+    function count_approved_leave() {
+        $this->db->where('status', 1);
+        return $this->db->count_all_results('leave_applications');
+    }
+
+
 
 
     function add_department($data) {
@@ -47,22 +68,10 @@ class Admin_model extends CI_Model {
         return $this->db->update('departments', $data);
     }
 
-    public function delete_department($id) {
-    $this->db->where('id', $id);
-    return $this->db->delete('departments');
-}
-
-
-
-    function get_departments_paginated($limit, $start) {
-        $this->db->limit($limit, $start);
-        $query = $this->db->get('departments');
-        return $query->result_array();
+    function delete_department($id) {
+        $this->db->where('id', $id);
+        return $this->db->delete('departments');
     }
-
-    
-
-
 
 
     function add_leave($data) {
@@ -80,7 +89,7 @@ class Admin_model extends CI_Model {
         return $this->db->update('leave_type', $data);
     }
 
-    public function delete_leavetype($id) {
+    function delete_leavetype($id) {
         $this->db->where('id', $id);
         return $this->db->delete('leave_type');
     }
@@ -230,7 +239,7 @@ class Admin_model extends CI_Model {
 
 
 
-    public function get_leave_applications() {
+    function get_leave_applications() {
         $this->db->select('leave_applications.*, employees.first_name, employees.last_name, leave_type.leave_type');
         $this->db->from('leave_applications');
         $this->db->join('employees', 'leave_applications.employee_id = employees.id');

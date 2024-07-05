@@ -46,6 +46,32 @@ class Employee_model extends CI_Model {
 
 
 
+    public function get_total_salary_given($id) {
+        $this->db->select_sum('total_salary');
+        $this->db->where('employee', $id);
+        $query = $this->db->get('salary');
+        $result = $query->row_array();
+        return $result['total_salary'];
+    }
+
+
+    public function count_applied_leave($id) {
+        $this->db->from('leave_applications');
+        $this->db->where('employee_id', $id);
+        return $this->db->count_all_results();
+    }
+
+    public function count_approved_leave($id) {
+        $this->db->from('leave_applications');
+        $this->db->where('employee_id', $id);
+        $this->db->where('status', '1'); // Assuming '1' represents approved status
+        return $this->db->count_all_results();
+    }
+
+
+
+
+
 
     public function get_leave_history($id) {
         $this->db->select('leave_applications.*, leave_type.leave_type');

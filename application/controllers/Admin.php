@@ -15,7 +15,9 @@ class Admin extends CI_Controller {
     }
 
     function index() {
+        $this->load->view('admin/header');
         $this->load->view('admin/login');
+        $this->load->view('admin/footer');
     }
 
     function login() {
@@ -42,15 +44,19 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function dashboard() {
+    function dashboard() {
         // Fetch data from the model
         $data['num_employees'] = $this->Admin_model->count_employees();
         $data['num_departments'] = $this->Admin_model->count_departments();
         $data['num_leave_types'] = $this->Admin_model->count_leave_types();
+        $data['num_leave_requests'] = $this->Admin_model->count_leave_requests();
+        $data['num_salary'] = $this->Admin_model->count_salary();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
+        $data['num_approved_leave'] = $this->Admin_model->count_approved_leave();
 
         // Load the dashboard view with the data
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/dashboard', $data);
         $this->load->view('admin/footer');
     }
@@ -77,9 +83,10 @@ class Admin extends CI_Controller {
 
     function manage_department() {
         $data['departments'] = $this->Admin_model->get_department_names();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
 
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/manage_department', $data);
         $this->load->view('admin/footer');
     }
@@ -114,15 +121,6 @@ class Admin extends CI_Controller {
 
 
 
-    function add_leave() {
-        $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
-        $this->load->view('admin/add_leave');
-        $this->load->view('admin/footer');
-    }
-
-
-    
     function save_leavetype()
     {
        
@@ -137,8 +135,9 @@ class Admin extends CI_Controller {
 
     function manage_leavetype() {
         $data['leave_type'] = $this->Admin_model->get_leave();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/manage_leavetype', $data);
         $this->load->view('admin/footer');
     }
@@ -246,9 +245,10 @@ class Admin extends CI_Controller {
     function manage_employees() {
         $data['employees'] = $this->Admin_model->get_employee_details1();
         $data['departments'] = $this->Admin_model->get_department_names();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
 
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/manage_employee', $data);
         $this->load->view('admin/footer');
     }
@@ -285,7 +285,7 @@ class Admin extends CI_Controller {
 
     
 
-    public function update_employee() {
+    function update_employee() {
         $id = $this->input->post('id');
 
         $data = array(
@@ -330,7 +330,7 @@ class Admin extends CI_Controller {
 
 
 
-    public function toggle_status()
+    function toggle_status()
     {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $id = $this->input->post('id');
@@ -352,8 +352,9 @@ class Admin extends CI_Controller {
     function manage_salary() {
         $data['employees'] = $this->Admin_model->salary();
         $data['departments'] = $this->Admin_model->get_department_names();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/manage_salary', $data);
         $this->load->view('admin/footer');
     }
@@ -429,7 +430,7 @@ class Admin extends CI_Controller {
 
 
 
-    public function update_salary() {
+    function update_salary() {
         $id = $this->input->post('id');
 
         $data = array(
@@ -448,12 +449,12 @@ class Admin extends CI_Controller {
 
 
 
-
     function leave_applications() {
         $data['leave_applications'] = $this->Admin_model->get_leave_applications();
+        $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
 
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/leave_applications', $data);
         $this->load->view('admin/footer');
     }
@@ -478,7 +479,7 @@ class Admin extends CI_Controller {
 
 
 
-    public function update_leave_application() {
+    function update_leave_application() {
         $id = $this->input->post('id');
         $status = $this->input->post('status');
         $admin_remark = $this->input->post('admin_remark');

@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="admin_remark" class="form-label">Admin Remark:</label>
-            <textarea class="form-control" id="admin_remark" name="admin_remark" rows="3" required><?php echo $application['admin_remark']; ?></textarea>
+            <textarea class="form-control" id="admin_remark" name="admin_remark" rows="3"><?php echo $application['admin_remark']; ?></textarea>
         </div>
     </div>
     <div class="modal-footer">

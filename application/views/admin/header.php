@@ -83,6 +83,6 @@
 
   </head>
   <body>
-    <div class="wrapper">
+    
       <!-- Sidebar -->
       

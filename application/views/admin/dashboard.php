@@ -10,13 +10,13 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-4">
-                <div class="card card-stats card-round">
+                <div class="card card-stats card-secondary card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/manage_employees'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
-                          class="icon-big text-center icon-primary bubble-shadow-small"
+                          class="icon-big text-center icon-secondary bubble-shadow-small"
                         >
                           <i class="fas fa-users"></i>
                         </div>
@@ -33,13 +33,13 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-4">
-                <div class="card card-stats card-round">
+                <div class="card card-stats card-primary card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/manage_department'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
+                          class="icon-big text-center icon-primary bubble-shadow-small"
                         >
                           <i class="fas fa-building"></i>
                         </div>
@@ -56,13 +56,13 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-4">
-                <div class="card card-stats card-round">
+                <div class="card card-stats card-info card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/manage_leavetype'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
-                          class="icon-big text-center icon-success bubble-shadow-small"
+                          class="icon-big text-center icon-info bubble-shadow-small"
                         >
                           <i class="fas fa-clipboard-list"></i>
                         </div>
@@ -105,19 +105,19 @@
               <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
-                    <a href="<?php echo base_url('admin/manage_employees'); ?>">
+                    <a href="<?php echo base_url('admin/leave_applications'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
                           class="icon-big text-center icon-primary bubble-shadow-small"
                         >
-                          <i class="fas fa-users"></i>
+                          <i class="fas icon-layers"></i>
                         </div>
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Employees</p>
-                          <h4 class="card-title"><?php echo $num_employees; ?></h4>
+                          <p class="card-category">Leave Request</p>
+                          <h4 class="card-title"><?php echo $num_leave_requests; ?></h4>
                         </div>
                       </div>
                     </div>
@@ -128,19 +128,19 @@
               <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
-                    <a href="<?php echo base_url('admin/manage_department'); ?>">
+                    <a href="<?php echo base_url('admin/manage_salary'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
                           class="icon-big text-center icon-info bubble-shadow-small"
                         >
-                          <i class="fas fa-building"></i>
+                          <i class="icon-wallet text-success"></i>
                         </div>
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Departments</p>
-                          <h4 class="card-title"><?php echo $num_departments; ?></h4>
+                          <p class="card-category">Salary</p>
+                          <h4 class="card-title"><?php echo $num_salary; ?></h4>
                         </div>
                       </div>
                     </div>
@@ -151,19 +151,19 @@
               <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
-                    <a href="<?php echo base_url('admin/manage_leavetype'); ?>">
+                    <a href="<?php echo base_url('admin/leave_applications?status=0'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
                           class="icon-big text-center icon-success bubble-shadow-small"
                         >
-                          <i class="fas fa-clipboard-list"></i>
+                          <i class="icon-close text-danger"></i>
                         </div>
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Leave Type</p>
-                          <h4 class="card-title"><?php echo $num_leave_types; ?></h4>
+                          <p class="card-category">Pending Leave Request</p>
+                          <h4 class="card-title"><?php echo $num_pending_leave; ?></h4>
                         </div>
                       </div>
                     </div>
@@ -174,6 +174,7 @@
               <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
+                    <a href="<?php echo base_url('admin/leave_applications?status=1'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
                         <div
@@ -184,11 +185,12 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Order</p>
-                          <h4 class="card-title">576</h4>
+                          <p class="card-category">Approved Leave Request</p>
+                          <h4 class="card-title"><?php echo $num_approved_leave; ?></h4>
                         </div>
                       </div>
                     </div>
+                    </a>
                   </div>
                 </div>
               </div>

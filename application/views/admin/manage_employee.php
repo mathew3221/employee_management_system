@@ -1,26 +1,5 @@
 <div class="container">
   <div class="page-inner">
-    <!-- <div class="page-header">
-      <ul class="breadcrumbs mb-3">
-        <li class="nav-home">
-          <a href="#">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url('admin/dashboard'); ?>">Admin</a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="#">Employees</a>
-        </li>
-      </ul>
-    </div> -->
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -38,7 +17,7 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive container">
               <table
                 id="basic-datatables"
                 class="display table table-striped table-hover"
@@ -60,7 +39,6 @@
                         <th>Name</th>
                         <th>Department</th>
                         <th>Date of Join</th>
-                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -377,6 +355,8 @@
                 });
             }
         });
+
+
 
 
 

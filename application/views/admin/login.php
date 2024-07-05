@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Employee</title>
-    <link
-      rel="icon"
-      href="<?php echo base_url()?>assets/img/mjlogo.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
-    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
-</head>
-<body>
-    <!-- Login 10 - Bootstrap Brain Component -->
-<section class="bg-light py-3 py-md-5 py-xl-8">
+<section class="bg-light py-5 py-md-5 py-xl-8">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
@@ -101,6 +84,3 @@
             });
         });
     </script>
-
-</body>
-</html>
