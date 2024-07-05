@@ -69,6 +69,14 @@ class Employee_model extends CI_Model {
     }
 
 
+    public function count_rejected_leave($id) {
+        $this->db->from('leave_applications');
+        $this->db->where('employee_id', $id);
+        $this->db->where('status', '2'); // Assuming '1' represents approved status
+        return $this->db->count_all_results();
+    }
+
+
 
 
 

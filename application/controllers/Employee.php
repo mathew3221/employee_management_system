@@ -64,6 +64,7 @@ class Employee extends CI_Controller {
             $data['total_salary_given'] = $this->Employee_model->get_total_salary_given($id);
             $data['applied_leave'] = $this->Employee_model->count_applied_leave($id);
             $data['approved_leave'] = $this->Employee_model->count_approved_leave($id);
+            $data['rejected_leave'] = $this->Employee_model->count_rejected_leave($id);
 
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);

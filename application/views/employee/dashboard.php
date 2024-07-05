@@ -8,7 +8,7 @@
               </div>
             </div>
         <div class="row row-card-no-pd">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <a href="<?php echo base_url('employee/salary'); ?>">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <a href="<?php echo base_url('employee/leave_history'); ?>">
@@ -52,7 +52,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <a href="<?php echo base_url('employee/leave_history'); ?>">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="icon-big text-center">
+                                    <i class="icon-check text-success"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-stats">
+                                <div class="numbers">
+                                    <p class="card-category">Approved Leave</p>
+                                    <h4 class="card-title"><?php echo $approved_leave; ?></h4>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                     <div class="card-body">
                         <a href="<?php echo base_url('employee/leave_history'); ?>">
@@ -64,8 +85,8 @@
                             </div>
                             <div class="col-7 col-stats">
                                 <div class="numbers">
-                                    <p class="card-category">Approved Leave</p>
-                                    <h4 class="card-title"><?php echo $approved_leave; ?></h4>
+                                    <p class="card-category">Rejected Leave</p>
+                                    <h4 class="card-title"><?php echo $rejected_leave; ?></h4>
                                 </div>
                             </div>
                         </div>
