@@ -1,26 +1,5 @@
 <div class="container">
   <div class="page-inner">
-    <!-- <div class="page-header">
-      <ul class="breadcrumbs mb-3">
-        <li class="nav-home">
-          <a href="#">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="#">Tables</a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="#">Datatables</a>
-        </li>
-      </ul>
-    </div> -->
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -49,22 +28,29 @@
                         <td><?php echo $employee_details['email']; ?></td>
                     </tr>
                     <tr>
-                        <th scope="row">Mobile Number</th>
-                        <td><?php echo $employee_details['mobile_no']; ?></td>
-                        <th scope="row">Country</th>
-                        <td><?php echo $employee_details['country']; ?></td>
-                    </tr>
-                    <tr>
                         <th scope="row">Department</th>
                         <td><?php echo $employee_details['department_name']; ?></td>
+                        <th scope="row">Mobile Number</th>
+                        <td><?php echo $employee_details['mobile_no']; ?></td>
+                        
+                    </tr>
+                    <tr>
+                        <th scope="row">Country</th>
+                        <td><?php echo $employee_details['country']; ?></td>
+                        <th scope="row">State</th>
+                        <td><?php echo $employee_details['state']; ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">City</th>
+                        <td><?php echo $employee_details['city']; ?></td>
                         <th scope="row">Date of Birth</th>
-                        <td><?php echo $employee_details['date_of_birth']; ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($employee_details['date_of_birth'])); ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Date of Joining</th>
-                        <td><?php echo $employee_details['date_of_joining']; ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($employee_details['date_of_joining'])); ?></td>
                         <th scope="row">Address</th>
-                        <td colspan="3"><?php echo $employee_details['address']; ?></td>
+                        <td><?php echo nl2br($employee_details['address']); ?></td>
                     </tr>
                 </tbody>
               </table>

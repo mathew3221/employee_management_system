@@ -55,6 +55,13 @@ class Employee_model extends CI_Model {
     }
 
 
+    public function count_salary($id) {
+        $this->db->from('salary');
+        $this->db->where('employee', $id);
+        return $this->db->count_all_results();
+    }
+
+
     public function count_applied_leave($id) {
         $this->db->from('leave_applications');
         $this->db->where('employee_id', $id);

@@ -41,11 +41,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control form-control-sm" id="city" name="city" value="<?php echo $employee[0]['city']; ?>" required>
+                    <input type="text" class="form-control form-control-sm" id="city" name="city" value="<?php echo $employee[0]['city']; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="country" class="form-label">Country</label>
-                    <input type="text" class="form-control form-control-sm" id="country" name="country" value="<?php echo $employee[0]['country']; ?>" required>
+                    <input type="text" class="form-control form-control-sm" id="country" name="country" value="<?php echo $employee[0]['country']; ?>">
                 </div>
             </div>
             <div class="col-md-6">
@@ -72,7 +72,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="state" class="form-label">State</label>
-                    <input type="text" class="form-control form-control-sm" id="state" name="state" value="<?php echo $employee[0]['state']; ?>" required>
+                    <input type="text" class="form-control form-control-sm" id="state" name="state" value="<?php echo $employee[0]['state']; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>

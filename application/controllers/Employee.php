@@ -65,6 +65,7 @@ class Employee extends CI_Controller {
             $data['applied_leave'] = $this->Employee_model->count_applied_leave($id);
             $data['approved_leave'] = $this->Employee_model->count_approved_leave($id);
             $data['rejected_leave'] = $this->Employee_model->count_rejected_leave($id);
+            $data['count_salary'] = $this->Employee_model->count_salary($id);
 
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
@@ -80,6 +81,7 @@ class Employee extends CI_Controller {
         if ($this->session->userdata('employee_logged_in')) {
             $id = $this->session->userdata('employee_logged_in')['id'];
             $data['employee_details'] = $this->Employee_model->get_employee_profile($id);
+            $data['count_salary'] = $this->Employee_model->count_salary($id);
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
             $this->load->view('employee/profile', $data);
@@ -97,6 +99,7 @@ class Employee extends CI_Controller {
             $data['employee_details'] = $this->Employee_model->get_employee_profile($id);
             $data['leave_history'] = $this->Employee_model->get_leave_history($id);
             $data['leave_types'] = $this->Employee_model->get_leave_types();
+            $data['count_salary'] = $this->Employee_model->count_salary($id);
 
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
@@ -146,6 +149,7 @@ class Employee extends CI_Controller {
             $id = $this->session->userdata('employee_logged_in')['id'];
             $data['employee_details'] = $this->Employee_model->get_employee_profile($id);
             $data['salary'] = $this->Employee_model->get_salary($id);
+            $data['count_salary'] = $this->Employee_model->count_salary($id);
 
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
@@ -163,6 +167,7 @@ class Employee extends CI_Controller {
         if ($this->session->userdata('employee_logged_in')) {
             $id = $this->session->userdata('employee_logged_in')['id'];
             $data['employee_details'] = $this->Employee_model->get_employee_profile($id);
+            $data['count_salary'] = $this->Employee_model->count_salary($id);
             $this->load->view('employee/header');
             $this->load->view('employee/sidebar', $data);
             $this->load->view('employee/change_password', $data);

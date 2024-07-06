@@ -94,19 +94,19 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" required>
+                            <input type="text" class="form-control form-control-sm" id="first_name" name="first_name">
                             <small id="firstNameError" class="form-text text-danger d-none">First Name is required.</small>
                         </div>
                         <div class="col-md-6">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" required>
+                            <input type="text" class="form-control form-control-sm" id="last_name" name="last_name">
                             <small id="lastNameError" class="form-text text-danger d-none">Last Name is required.</small>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="department_name" class="form-label">Department</label>
-                            <select class="form-select form-select-sm" id="department_name" name="department_name" required>
+                            <select class="form-select form-select-sm" id="department_name" name="department_name">
                                 <option value="">Select Department</option>
                                 <?php foreach ($departments as $dt) : ?>
                                     <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
@@ -149,6 +149,7 @@
                         <div class="col-md-6">
                             <label for="date_of_joining" class="form-label">Date of Joining</label>
                             <input type="date" class="form-control form-control-sm" id="date_of_joining" name="date_of_joining">
+                            <small id="dateOfJoiningError" class="form-text text-danger d-none">Date of Joining is required.</small>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -164,12 +165,12 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control form-control-sm" id="password" name="password">
+                            <input type="password" class="form-control form-control-sm" id="password" name="password" required>
                             <small id="passwordError" class="form-text text-danger d-none">Password is required.</small>
                         </div>
                         <div class="col-md-6">
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control form-control-sm" id="confirmPassword" name="confirmPassword">
+                            <input type="password" class="form-control form-control-sm" id="confirmPassword" name="confirmPassword" required>
                             <small id="confirmPasswordError" class="form-text text-danger d-none">Passwords do not match.</small>
                         </div>
                     </div>
@@ -243,18 +244,10 @@
 
 
 <script type="text/javascript">
-        document.getElementById('addEmployeeForm').addEventListener('input', function(event) {
+        document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
             var isValid = true;
             var form = this;
 
-            // Example validation checks
-            var employeeId = form.employee_id.value.trim();
-            if (employeeId === '') {
-                isValid = false;
-                document.getElementById('employeeIdError').classList.remove('d-none');
-            } else {
-                document.getElementById('employeeIdError').classList.add('d-none');
-            }
 
             var firstName = form.first_name.value.trim();
             if (firstName === '') {
@@ -270,14 +263,6 @@
                 document.getElementById('lastNameError').classList.remove('d-none');
             } else {
                 document.getElementById('lastNameError').classList.add('d-none');
-            }
-
-            var email = form.email.value.trim();
-            if (email === '' || !/\S+@\S+\.\S+/.test(email)) {
-                isValid = false;
-                document.getElementById('emailError').classList.remove('d-none');
-            } else {
-                document.getElementById('emailError').classList.add('d-none');
             }
 
             var mobileNo = form.mobile_no.value.trim();
@@ -296,6 +281,39 @@
                 document.getElementById('departmentError').classList.add('d-none');
             }
 
+
+            var dateOfJoining = form.date_of_joining.value.trim();
+            if (dateOfJoining === '') {
+                isValid = false;
+                document.getElementById('dateOfJoiningError').textContent = 'Date of Joining is required.';
+                document.getElementById('dateOfJoiningError').classList.remove('d-none');
+            } else {
+                var currentDate = new Date();
+                var selectedDate = new Date(dateOfJoining);
+                if (selectedDate > currentDate) {
+                    isValid = false;
+                    document.getElementById('dateOfJoiningError').textContent = 'Date of Joining cannot be in the future.';
+                    document.getElementById('dateOfJoiningError').classList.remove('d-none');
+                } else {
+                    document.getElementById('dateOfJoiningError').classList.add('d-none');
+                }
+            }
+
+
+
+            
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+
+
+        document.getElementById('addEmployeeForm').addEventListener('input', function(event) {
+            var isValid = true;
+            var form = this;
+
             var password = form.password.value.trim();
             var confirmPassword = form.confirmPassword.value.trim();
             if (password === '' || password !== confirmPassword) {
@@ -306,6 +324,7 @@
                 document.getElementById('passwordError').classList.add('d-none');
                 document.getElementById('confirmPasswordError').classList.add('d-none');
             }
+
 
             if (!isValid) {
                 event.preventDefault();
@@ -468,22 +487,6 @@
 
 
 
-
-        document.getElementById('searchBar').addEventListener('input', function() {
-            let filter = this.value.toLowerCase();
-            let rows = document.querySelectorAll('tbody tr');
-
-            rows.forEach(row => {
-                let name = row.cells[2].innerText.toLowerCase();
-                let email = row.cells[3].innerText.toLowerCase();
-                let department = row.cells[4].innerText.toLowerCase();
-                if (name.includes(filter) || email.includes(filter) || department.includes(filter)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
 
 
 
