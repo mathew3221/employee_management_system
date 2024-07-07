@@ -25,6 +25,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Photo</th>
                         <th>Emp ID</th>
                         <th>Email</th>
                         <th>Department</th>
@@ -35,6 +36,7 @@
                 <tfoot>
                     <tr>
                         <th>#</th>
+                        <th>Photo</th>
                         <th>Emp ID</th>
                         <th>Name</th>
                         <th>Department</th>
@@ -50,6 +52,13 @@
                         <?php foreach ($employees as $index => $employee) : ?>
                             <tr>
                                 <td><?php echo $index + 1; ?></td>
+                                <td class="avatar-sm">
+                                    <?php if (!empty($employee['photo'])) : ?>
+                                        <img src="<?php echo base_url($employee['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
+                                    <?php else : ?>
+                                        <img src="<?php echo base_url()?>assets/img/default-avatar.jpg" alt="Profile Image" class="avatar-img rounded-circle">
+                                    <?php endif; ?>
+                                </td>
                                 <td><?php echo $employee['employee_id']; ?></td>
                                 <td><?php echo $employee['first_name'] . ' ' . $employee['last_name']; ?></td>
                                 <td><?php echo $employee['department_name']; ?></td>
@@ -100,7 +109,6 @@
                         <div class="col-md-6">
                             <label for="last_name" class="form-label">Last Name</label>
                             <input type="text" class="form-control form-control-sm" id="last_name" name="last_name">
-                            <small id="lastNameError" class="form-text text-danger d-none">Last Name is required.</small>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -145,6 +153,7 @@
                         <div class="col-md-6">
                             <label for="date_of_birth" class="form-label">Date of Birth</label>
                             <input type="date" class="form-control form-control-sm" id="date_of_birth" name="date_of_birth">
+                            <small id="dateOfBirthError" class="form-text text-danger d-none">Date of Birth is required.</small>
                         </div>
                         <div class="col-md-6">
                             <label for="date_of_joining" class="form-label">Date of Joining</label>
@@ -186,7 +195,7 @@
 
 
 <div class="modal fade" id="viewemployeeModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="viewModalLabel">Details</h3>
@@ -257,14 +266,6 @@
                 document.getElementById('firstNameError').classList.add('d-none');
             }
 
-            var lastName = form.last_name.value.trim();
-            if (lastName === '') {
-                isValid = false;
-                document.getElementById('lastNameError').classList.remove('d-none');
-            } else {
-                document.getElementById('lastNameError').classList.add('d-none');
-            }
-
             var mobileNo = form.mobile_no.value.trim();
             if (mobileNo.length !== 10 || !/^\d{10}$/.test(mobileNo)) {
                 isValid = false;
@@ -282,21 +283,30 @@
             }
 
 
+            var dateOfBirth = form.date_of_birth.value.trim();
+            if (dateOfBirth === '') {
+                isValid = false;
+                document.getElementById('dateOfBirthError').textContent = 'Date of Birth is required.';
+                document.getElementById('dateOfBirthError').classList.remove('d-none');
+            } else {
+                var currentDate = new Date();
+                var selectedDate = new Date(dateOfBirth);
+                if (selectedDate > currentDate) {
+                    isValid = false;
+                    document.getElementById('dateOfBirthError').textContent = 'Date of Birth cannot be in the future.';
+                    document.getElementById('dateOfBirthError').classList.remove('d-none');
+                } else {
+                    document.getElementById('dateOfBirthError').classList.add('d-none');
+                }
+            }
+
+
             var dateOfJoining = form.date_of_joining.value.trim();
             if (dateOfJoining === '') {
                 isValid = false;
-                document.getElementById('dateOfJoiningError').textContent = 'Date of Joining is required.';
                 document.getElementById('dateOfJoiningError').classList.remove('d-none');
             } else {
-                var currentDate = new Date();
-                var selectedDate = new Date(dateOfJoining);
-                if (selectedDate > currentDate) {
-                    isValid = false;
-                    document.getElementById('dateOfJoiningError').textContent = 'Date of Joining cannot be in the future.';
-                    document.getElementById('dateOfJoiningError').classList.remove('d-none');
-                } else {
-                    document.getElementById('dateOfJoiningError').classList.add('d-none');
-                }
+                document.getElementById('dateOfJoiningError').classList.add('d-none');
             }
 
 

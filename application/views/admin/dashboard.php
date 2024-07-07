@@ -84,6 +84,29 @@
               <div class="col-sm-6 col-md-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
+                    <a href="<?php echo base_url('admin/manage_salary'); ?>">
+                    <div class="row align-items-center">
+                      <div class="col-icon">
+                        <div
+                          class="icon-big text-center icon-info bubble-shadow-small"
+                        >
+                          <i class="icon-wallet text-success"></i>
+                        </div>
+                      </div>
+                      <div class="col col-stats ms-3 ms-sm-0">
+                        <div class="numbers">
+                          <p class="card-category">Salary</p>
+                          <h4 class="card-title"><?php echo '&#8377 ' .format_number($total_salary); ?></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
                     <a href="<?php echo base_url('admin/leave_applications'); ?>">
                     <div class="row align-items-center">
                       <div class="col-icon">
@@ -97,29 +120,6 @@
                         <div class="numbers">
                           <p class="card-category">Leave Request</p>
                           <h4 class="card-title"><?php echo $num_leave_requests; ?></h4>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="card card-stats card-round">
-                  <div class="card-body">
-                    <a href="<?php echo base_url('admin/manage_salary'); ?>">
-                    <div class="row align-items-center">
-                      <div class="col-icon">
-                        <div
-                          class="icon-big text-center icon-info bubble-shadow-small"
-                        >
-                          <i class="icon-wallet text-success"></i>
-                        </div>
-                      </div>
-                      <div class="col col-stats ms-3 ms-sm-0">
-                        <div class="numbers">
-                          <p class="card-category">Salary</p>
-                          <h4 class="card-title"><?php echo $num_salary; ?></h4>
                         </div>
                       </div>
                     </div>

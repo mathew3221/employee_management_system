@@ -1,13 +1,13 @@
 <?php if (!empty($employee)) { ?>
     <div class="table-responsive">
-        <table class="table table-hover table-sm">
+        <table class="table table-sm table-striped">
             <tbody>
                 <?php foreach ($employee as $index => $emp) { ?>
                     <tr>
-                        <th>Photo</th>
-                        <td>
+                        <th style="width: 100px;">Photo</th>
+                        <td style="width: 150px;">
                             <?php if (!empty($emp['photo'])) : ?>
-                                <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid" width="70" height="70">
+                                <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid rounded-circle" width="80" height="80">
                             <?php else : ?>
                                 No photo available
                             <?php endif; ?>

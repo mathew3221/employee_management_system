@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="employee_id" class="form-label">Employee ID</label>
-                    <input type="text" class="form-control form-control-sm" id="employee_id" name="employee_id" value="<?php echo $employee[0]['employee_id']; ?>" required>
+                    <input type="text" class="form-control form-control-sm" id="employee_id" name="employee_id" value="<?php echo $employee[0]['employee_id']; ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="first_name" class="form-label">First Name</label>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <textarea class="form-control form-control-sm" id="address" name="address" rows="3" required><?php echo $employee[0]['address']; ?></textarea>
+                    <textarea class="form-control form-control-sm" id="address" name="address" rows="3"><?php echo $employee[0]['address']; ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="state" class="form-label">State</label>

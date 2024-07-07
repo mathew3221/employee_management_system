@@ -34,9 +34,12 @@ class Admin_model extends CI_Model {
         return $this->db->count_all('leave_applications');
     }
 
-    public function count_salary() {
-        return $this->db->count_all('salary');
+    public function sum_salary() {
+        $this->db->select_sum('total_salary');
+        $query = $this->db->get('salary');
+        return $query->row()->total_salary;
     }
+
 
 
     public function count_pending_leave() {

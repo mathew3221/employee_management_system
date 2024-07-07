@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('Admin_model');
         $this->load->library('session');
+        $this->load->helper('number');
 
         // Check if admin is logged in for each function except login and index
         if (!$this->session->userdata('admin_logged_in') && !in_array($this->router->fetch_method(), ['login', 'index'])) {
@@ -50,7 +51,7 @@ class Admin extends CI_Controller {
         $data['num_departments'] = $this->Admin_model->count_departments();
         $data['num_leave_types'] = $this->Admin_model->count_leave_types();
         $data['num_leave_requests'] = $this->Admin_model->count_leave_requests();
-        $data['num_salary'] = $this->Admin_model->count_salary();
+        $data['total_salary'] = $this->Admin_model->sum_salary();
         $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
         $data['num_approved_leave'] = $this->Admin_model->count_approved_leave();
 
