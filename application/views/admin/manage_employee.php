@@ -86,8 +86,8 @@
 </div>
 
 
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg"> <!-- Changed to modal-md -->
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
@@ -95,100 +95,101 @@
             </div>
             <div class="modal-body">
                 <form id="addEmployeeForm" action="<?php echo base_url('admin/save_employee'); ?>" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="employee_id" class="form-label">Employee ID</label>
-                        <input type="text" class="form-control form-control-sm" id="employee_id" name="employee_id" required>
-                        <small id="employeeIdError" class="form-text text-danger d-none">Employee ID already exists.</small>
-                    </div>
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-md-6">
-                            <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control form-control-sm" id="first_name" name="first_name">
-                            <small id="firstNameError" class="form-text text-danger d-none">First Name is required.</small>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3">
+                                    <label for="employee_id" class="form-label">Employee ID</label>
+                                    <input type="text" class="form-control form-control-sm" id="employee_id" name="employee_id" required>
+                                    <small id="employeeIdError" class="form-text text-danger d-none">Employee ID already exists.</small>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="first_name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" required>
+                                    <small id="firstNameError" class="form-text text-danger d-none">First Name is required.</small>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" required>
+                                </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="email" class="form-label">Email ID</label>
+                                    <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                                    <small id="emailError" class="form-text text-danger d-none">Email already exists.</small>
+                                </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="department_name" class="form-label">Department</label>
+                                    <select class="form-select form-select-sm" id="department_name" name="department_name" required>
+                                        <option value="">Select Department</option>
+                                        <?php foreach ($departments as $dt) : ?>
+                                            <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <small id="departmentError" class="form-text text-danger d-none">Department is required.</small>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="mobile_no" class="form-label">Mobile No</label>
+                                    <input type="text" class="form-control form-control-sm" id="mobile_no" name="mobile_no" required>
+                                    <small id="mobileNoError" class="form-text text-danger d-none">Mobile number must be 10 digits.</small>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select class="form-select form-select-sm" id="gender" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="state" class="form-label">State</label>
+                                    <input type="text" class="form-control form-control-sm" id="state" name="state">
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control form-control-sm" id="last_name" name="last_name">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="department_name" class="form-label">Department</label>
-                            <select class="form-select form-select-sm" id="department_name" name="department_name">
-                                <option value="">Select Department</option>
-                                <?php foreach ($departments as $dt) : ?>
-                                    <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <small id="departmentError" class="form-text text-danger d-none">Department is required.</small>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Email ID</label>
-                            <input type="email" class="form-control form-control-sm" id="email" name="email" required>
-                            <small id="emailError" class="form-text text-danger d-none">Email already exists.</small>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="mobile_no" class="form-label">Mobile No</label>
-                            <input type="text" class="form-control form-control-sm" id="mobile_no" name="mobile_no" required>
-                            <small id="mobileNoError" class="form-text text-danger d-none">Mobile number must be 10 digits.</small>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="country" class="form-label">Country</label>
-                            <input type="text" class="form-control form-control-sm" id="country" name="country">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="state" class="form-label">State</label>
-                            <input type="text" class="form-control form-control-sm" id="state" name="state">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control form-control-sm" id="city" name="city">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="date_of_birth" class="form-label">Date of Birth</label>
-                            <input type="date" class="form-control form-control-sm" id="date_of_birth" name="date_of_birth">
-                            <small id="dateOfBirthError" class="form-text text-danger d-none">Date of Birth is required.</small>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="date_of_joining" class="form-label">Date of Joining</label>
-                            <input type="date" class="form-control form-control-sm" id="date_of_joining" name="date_of_joining">
-                            <small id="dateOfJoiningError" class="form-text text-danger d-none">Date of Joining is required.</small>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="photo" class="form-label">Photo</label>
-                            <input type="file" class="form-control form-control-sm" id="photo" name="photo">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control form-control-sm" id="address" name="address" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control form-control-sm" id="password" name="password" required>
-                            <small id="passwordError" class="form-text text-danger d-none">Password is required.</small>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control form-control-sm" id="confirmPassword" name="confirmPassword" required>
-                            <small id="confirmPasswordError" class="form-text text-danger d-none">Passwords do not match.</small>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3">
+                                    <label for="photo" class="form-label">Photo</label>
+                                    <input type="file" class="form-control form-control-sm" id="photo" name="photo">
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="date_of_birth" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control form-control-sm" id="date_of_birth" name="date_of_birth" required>
+                                    <small id="dateOfBirthError" class="form-text text-danger d-none">Date of Birth is required.</small>
+                                </div>
+                                <div class="col-sm-6 mb-3">
+                                    <label for="date_of_joining" class="form-label">Date of Joining</label>
+                                    <input type="date" class="form-control form-control-sm" id="date_of_joining" name="date_of_joining" required>
+                                    <small id="dateOfJoiningError" class="form-text text-danger d-none">Date of Joining is required.</small>
+                                </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <textarea class="form-control form-control-sm" id="address" name="address" rows="4"></textarea>
+                                </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control form-control-sm" id="password" name="password" required>
+                                    <small id="passwordError" class="form-text text-danger d-none">Password is required.</small>
+                                </div>
+                                <div class="col-sm-12 mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control form-control-sm" id="confirmPassword" name="confirmPassword" required>
+                                    <small id="confirmPasswordError" class="form-text text-danger d-none">Passwords do not match.</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -220,7 +221,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="viewModalLabel">View Employee Salary</h5>
+                <h5 class="modal-title" id="viewModalLabel">Employee Salary</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="viewsalary">
@@ -235,7 +236,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="viewModalLabel">View Employee Leave</h5>
+                <h5 class="modal-title" id="viewModalLabel">Employee Leave</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="viewleave">

@@ -127,7 +127,10 @@
                             <input type="text" class="form-control" id="total_salary" name="total_salary" readonly>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Salary</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -138,7 +141,7 @@
 
 <!-- View Salary Modal -->
 <div class="modal fade" id="viewsalaryModal" tabindex="-1" aria-labelledby="viewsalaryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="viewsalaryModalLabel">View Employee Details</h5>
@@ -146,9 +149,6 @@
             </div>
             <div class="modal-body" id="viewsalary">
                 <!-- Salary details will be loaded dynamically here -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

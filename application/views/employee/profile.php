@@ -35,22 +35,20 @@
                         
                     </tr>
                     <tr>
-                        <th scope="row">Country</th>
-                        <td><?php echo $employee_details['country']; ?></td>
+                        <th scope="row">Gender</th>
+                        <td><?php echo $employee_details['gender']; ?></td>
                         <th scope="row">State</th>
                         <td><?php echo $employee_details['state']; ?></td>
                     </tr>
                     <tr>
-                        <th scope="row">City</th>
-                        <td><?php echo $employee_details['city']; ?></td>
                         <th scope="row">Date of Birth</th>
                         <td><?php echo date('d/m/Y', strtotime($employee_details['date_of_birth'])); ?></td>
+                        <th scope="row">Address</th>
+                        <td><?php echo nl2br($employee_details['address']); ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Date of Joining</th>
                         <td><?php echo date('d/m/Y', strtotime($employee_details['date_of_joining'])); ?></td>
-                        <th scope="row">Address</th>
-                        <td><?php echo nl2br($employee_details['address']); ?></td>
                     </tr>
                 </tbody>
               </table>

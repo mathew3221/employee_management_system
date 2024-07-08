@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Admin_model');
-        $this->load->library('session');
         $this->load->helper('number');
 
         // Check if admin is logged in for each function except login and index
@@ -206,9 +205,8 @@ class Admin extends CI_Controller {
             'department_id' => $this->input->post('department_name'),
             'email' => $this->input->post('email'),
             'mobile_no' => $this->input->post('mobile_no'),
-            'country' => $this->input->post('country'),
+            'gender' => $this->input->post('gender'),
             'state' => $this->input->post('state'),
-            'city' => $this->input->post('city'),
             'date_of_birth' => $this->input->post('date_of_birth'),
             'date_of_joining' => $this->input->post('date_of_joining'),
             'address' => $this->input->post('address'),
@@ -296,9 +294,8 @@ class Admin extends CI_Controller {
             'department_id' => $this->input->post('department_name'),
             'email' => $this->input->post('email'),
             'mobile_no' => $this->input->post('mobile_no'),
-            'country' => $this->input->post('country'),
+            'gender' => $this->input->post('gender'),
             'state' => $this->input->post('state'),
-            'city' => $this->input->post('city'),
             'date_of_birth' => $this->input->post('date_of_birth'),
             'date_of_joining' => $this->input->post('date_of_joining'),
             'address' => $this->input->post('address'),
