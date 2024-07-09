@@ -64,12 +64,12 @@
                   <p>Leave Request</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="#charts">
                   <i class="far fa-chart-bar"></i>
                   <p>Reports</p>
                 </a>
-              </li>
+              </li> -->
               <!-- <li class="nav-item">
                 <a href="#widgets">
                   <i class="fas fa-desktop"></i>
@@ -263,7 +263,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="<?php echo base_url()?>assets/img/default-avatar.jpg"
+                        src="<?php echo base_url()?>assets/img/mj-avatar.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />

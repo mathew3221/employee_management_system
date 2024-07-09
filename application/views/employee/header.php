@@ -38,8 +38,6 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/plugins.min.css" />
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/demo.css" />
 
 
     <!--   Core JS Files   -->
@@ -54,8 +52,6 @@
     <script src="<?php echo base_url()?>assets/js/plugin/datatables/datatables.min.js"></script>
     <!-- Kaiadmin JS -->
     <script src="<?php echo base_url()?>assets/js/kaiadmin.min.js"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="<?php echo base_url()?>assets/js/setting-demo2.js"></script>    
 
   </head>
   <body>

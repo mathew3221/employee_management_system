@@ -4,46 +4,44 @@
             <tbody>
     <?php foreach ($employee as $index => $emp) { ?>
         <tr>
-            <th style="width: 100px;">Photo</th>
+            <th>Employee ID:</th>
+            <td><?php echo $emp['employee_id']; ?></td>
+            <th>Photo</th>
             <td style="width: 150px;" colspan="3">
                 <?php if (!empty($emp['photo'])) : ?>
-                    <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid rounded-circle" width="80" height="80">
+                    <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid rounded" width="80" height="80">
                 <?php else : ?>
                     No photo available
                 <?php endif; ?>
             </td>
         </tr>
         <tr>
-            <th>Employee ID:</th>
-            <td><?php echo $emp['employee_id']; ?></td>
             <th>Name:</th>
             <td><?php echo $emp['first_name'] . ' ' . $emp['last_name']; ?></td>
-        </tr>
-        <tr>
             <th>Email:</th>
             <td><?php echo $emp['email']; ?></td>
+        </tr>
+        <tr>
             <th>Mobile Number:</th>
             <td><?php echo $emp['mobile_no']; ?></td>
-        </tr>
-        <tr>
             <th>Gender:</th>
             <td><?php echo $emp['gender']; ?></td>
+        </tr>
+        <tr>
             <th>State:</th>
             <td><?php echo $emp['state']; ?></td>
-        </tr>
-        <tr>
             <th>Department:</th>
             <td><?php echo $emp['department_name']; ?></td>
+        </tr>
+        <tr>
             <th>Date of Birth:</th>
             <td><?php echo date('d/m/Y', strtotime($emp['date_of_birth'])); ?></td>
-        </tr>
-        <tr>
             <th>Date of Joining:</th>
             <td><?php echo date('d/m/Y', strtotime($emp['date_of_joining'])); ?></td>
-            <th>Address:</th>
-            <td><?php echo nl2br($emp['address']); ?></td>
         </tr>
         <tr>
+            <th>Address:</th>
+            <td><?php echo nl2br($emp['address']); ?></td>
             <th>Password:</th>
             <td colspan="3" class="d-flex align-items-center">
                 <span id="password-<?php echo $index; ?>" class="password flex-grow-1">********</span>
@@ -52,6 +50,8 @@
                     <i class="fas fa-eye ms-2"></i>
                 </a>
             </td>
+        </tr>
+        <tr>
         </tr>
     <?php } ?>
 </tbody>
