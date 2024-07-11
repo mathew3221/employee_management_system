@@ -53,8 +53,8 @@
                             <tr>
                                 <td><?php echo $index + 1; ?></td>
                                 <td class="avatar-sm">
-                                    <?php if (!empty($employee['photo'])) : ?>
-                                        <img src="<?php echo base_url($employee['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
+                                    <?php if (!empty($employee['photo']) && file_exists('assets/images/'.$employee['photo'])) : ?>
+                                        <img src="<?php echo base_url('assets/images/'.$employee['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
                                     <?php else : ?>
                                         <img src="<?php echo base_url()?>assets/img/default-avatar.jpg" alt="Profile Image" class="avatar-img rounded-circle">
                                     <?php endif; ?>

@@ -285,7 +285,7 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
+                            <h4>Admin</h4>
                             <p class="text-muted">hello@example.com</p>
                             <a
                               href="#"

@@ -15,7 +15,7 @@
                         <td><?php echo $employee_details['employee_id']; ?></td>
                         <th colspan="3">
                             <?php if (!empty($employee_details['photo'])) : ?>
-                                <img src="<?php echo base_url($employee_details['photo']); ?>" alt="Employee Photo" class="img-fluid" width="150" height="150">
+                                <img src="<?php echo base_url('assets/images/'.$employee_details['photo']); ?>" alt="Employee Photo" class="img-fluid" width="150" height="150">
                             <?php else : ?>
                                 No photo available
                             <?php endif; ?>

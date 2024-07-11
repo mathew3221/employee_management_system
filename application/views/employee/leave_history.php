@@ -19,7 +19,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                id="basic-datatables"
+                id="multi-filter-select"
                 class="display table table-striped table-hover"
               >
                 <thead>
@@ -42,8 +42,6 @@
                         <th>To Date</th>
                         <th>Description</th>
                         <th>Applied Date</th>
-                        <th>Admin Remark</th>
-                        <th>Status</th>
                     </tr>
                 </tfoot>
                 <tbody>

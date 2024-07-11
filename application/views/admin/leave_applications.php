@@ -7,7 +7,7 @@
             <div class="d-flex align-items-center justify-content-between">
               <h4 class="card-title">Leave Applications</h4>
               <div>
-                  <select id="statusFilter" class="form-select" onchange="filterByStatus()">
+              <select id="statusFilter" class="form-select" onchange="filterByStatus()">
                 <option value="all">All</option>
                 <option value="0">Pending</option>
                 <option value="1">Approved</option>
@@ -38,7 +38,6 @@
                     <th>From Date</th>
                     <th>To Date</th>
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
                 </tfoot>
                 <tbody>

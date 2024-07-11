@@ -228,11 +228,12 @@
                     aria-expanded="false"
                   >
                     <div class="avatar-sm">
-                      <?php if (!empty($employee_details['photo']) && file_exists($employee_details['photo'])): ?>
-                          <img src="<?php echo base_url($employee_details['photo']); ?>" alt="Profile Image" class="avatar-img rounded">
-                      <?php else: ?>
+                      <?php if (!empty($employee_details['photo']) && file_exists('assets/images/'.$employee_details['photo'])) : ?>
+                          <img src="<?php echo base_url('assets/images/'.$employee_details['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
+                      <?php else : ?>
                           <img src="<?php echo base_url()?>assets/img/default-avatar.jpg" alt="Profile Image" class="avatar-img rounded-circle">
                       <?php endif; ?>
+
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
@@ -244,15 +245,14 @@
                       <li>
                         <div class="user-box">
                           <div class="avatar-lg">
-                              <?php if (!empty($employee_details['photo']) && file_exists($employee_details['photo'])): ?>
-                                  <img src="<?php echo base_url($employee_details['photo']); ?>" alt="Profile Image" class="avatar-img rounded">
-                              <?php else: ?>
+                              <?php if (!empty($employee_details['photo']) && file_exists('assets/images/'.$employee_details['photo'])) : ?>
+                                  <img src="<?php echo base_url('assets/images/'.$employee_details['photo']); ?>" alt="Profile Image" class="avatar-img rounded">
+                              <?php else : ?>
                                   <img src="<?php echo base_url()?>assets/img/default-avatar.jpg" alt="Profile Image" class="avatar-img rounded">
                               <?php endif; ?>
                           </div>
-
                           <div class="u-text">
-                            <h4>Hizrian</h4>
+                            <h4><?php echo $employee_details['first_name']; ?></h4>
                             <p class="text-muted"><?php echo $employee_details['email']; ?></p>
                             <a
                               href="<?php echo base_url('employee/profile'); ?>"

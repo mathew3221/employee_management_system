@@ -53,8 +53,8 @@
                             <tr>
                                 <td><?php echo $index + 1; ?></td>
                                 <td class="avatar-sm">
-                                    <?php if (!empty($employee['photo'])) : ?>
-                                        <img src="<?php echo base_url($employee['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
+                                    <?php if (!empty('assets/images/'.$employee['photo'])) : ?>
+                                        <img src="<?php echo base_url('assets/images/'.$employee['photo']); ?>" alt="Profile Image" class="avatar-img rounded-circle">
                                     <?php else : ?>
                                         <img src="<?php echo base_url()?>assets/img/default-avatar.jpg" alt="Profile Image" class="avatar-img rounded-circle">
                                     <?php endif; ?>
@@ -94,56 +94,59 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addEmployeeForm" action="<?php echo base_url('admin/save_employee'); ?>" method="post" enctype="multipart/form-data">
+                <form id="addEmployeeForm" action="<?php echo base_url('admin/save_employee'); ?>" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-sm-12 mb-3">
                                     <label for="employee_id" class="form-label">Employee ID</label>
-                                    <input type="text" class="form-control form-control-sm" id="employee_id" name="employee_id" required>
+                                    <input type="text" class="form-control" id="employee_id" name="employee_id" required>
+                                    <div class="invalid-feedback">Employee ID is required.</div>
                                     <small id="employeeIdError" class="form-text text-danger d-none">Employee ID already exists.</small>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="first_name" class="form-label">First Name</label>
-                                    <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" required>
-                                    <small id="firstNameError" class="form-text text-danger d-none">First Name is required.</small>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                    <div class="invalid-feedback">First Name is required.</div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="last_name" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" required>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" required>
                                 </div>
                                 <div class="col-sm-12 mb-3">
                                     <label for="email" class="form-label">Email ID</label>
-                                    <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="invalid-feedback">Valid Email ID is required.</div>
                                     <small id="emailError" class="form-text text-danger d-none">Email already exists.</small>
                                 </div>
                                 <div class="col-sm-12 mb-3">
                                     <label for="department_name" class="form-label">Department</label>
-                                    <select class="form-select form-select-sm" id="department_name" name="department_name" required>
+                                    <select class="form-select" id="department_name" name="department_name" required>
                                         <option value="">Select Department</option>
                                         <?php foreach ($departments as $dt) : ?>
                                             <option value="<?php echo $dt['id']; ?>"><?php echo $dt['department_name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <small id="departmentError" class="form-text text-danger d-none">Department is required.</small>
+                                    <div class="invalid-feedback">Department is required.</div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="mobile_no" class="form-label">Mobile No</label>
-                                    <input type="text" class="form-control form-control-sm" id="mobile_no" name="mobile_no" required>
-                                    <small id="mobileNoError" class="form-text text-danger d-none">Mobile number must be 10 digits.</small>
+                                    <input type="text" class="form-control" id="mobile_no" name="mobile_no" required>
+                                    <div class="invalid-feedback">Mobile number must be 10 digits.</div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="gender" class="form-label">Gender</label>
-                                    <select class="form-select form-select-sm" id="gender" name="gender" required>
+                                    <select class="form-select" id="gender" name="gender" required>
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
                                     </select>
+                                    <div class="invalid-feedback">Gender is required.</div>
                                 </div>
-                                <div class="col-sm-6 mb-3">
+                                <div class="col-sm-12 mb-3">
                                     <label for="state" class="form-label">State</label>
-                                    <input type="text" class="form-control form-control-sm" id="state" name="state">
+                                    <input type="text" class="form-control" id="state" name="state">
                                 </div>
                             </div>
                         </div>
@@ -151,31 +154,32 @@
                             <div class="row">
                                 <div class="col-sm-12 mb-3">
                                     <label for="photo" class="form-label">Photo</label>
-                                    <input type="file" class="form-control form-control-sm" id="photo" name="photo">
+                                    <input type="file" class="form-control" id="photo" name="photo">
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="date_of_birth" class="form-label">Date of Birth</label>
-                                    <input type="date" class="form-control form-control-sm" id="date_of_birth" name="date_of_birth" required>
-                                    <small id="dateOfBirthError" class="form-text text-danger d-none">Date of Birth is required.</small>
+                                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                                    <div class="invalid-feedback">Date of Birth is required.</div>
+                                    <small id="dateOfBirthError" class="form-text text-danger d-none">Date of Birth cannot be in the future.</small>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <label for="date_of_joining" class="form-label">Date of Joining</label>
-                                    <input type="date" class="form-control form-control-sm" id="date_of_joining" name="date_of_joining" required>
-                                    <small id="dateOfJoiningError" class="form-text text-danger d-none">Date of Joining is required.</small>
+                                    <input type="date" class="form-control" id="date_of_joining" name="date_of_joining" required>
+                                    <div class="invalid-feedback">Date of Joining is required.</div>
                                 </div>
                                 <div class="col-sm-12 mb-3">
                                     <label for="address" class="form-label">Address</label>
-                                    <textarea class="form-control form-control-sm" id="address" name="address" rows="4"></textarea>
+                                    <textarea class="form-control" id="address" name="address" rows="4"></textarea>
                                 </div>
                                 <div class="col-sm-12 mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control form-control-sm" id="password" name="password" required>
-                                    <small id="passwordError" class="form-text text-danger d-none">Password is required.</small>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <div class="invalid-feedback">Password is required.</div>
                                 </div>
                                 <div class="col-sm-12 mb-3">
                                     <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control form-control-sm" id="confirmPassword" name="confirmPassword" required>
-                                    <small id="confirmPasswordError" class="form-text text-danger d-none">Passwords do not match.</small>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                    <div class="invalid-feedback">Passwords do not match.</div>
                                 </div>
                             </div>
                         </div>
@@ -189,6 +193,7 @@
         </div>
     </div>
 </div>
+
 
 
 
@@ -255,137 +260,119 @@
 
 <script type="text/javascript">
         document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
-            var isValid = true;
-            var form = this;
+        event.preventDefault(); // Prevent default form submission
+        event.stopPropagation(); // Stop event propagation
 
+        var form = this;
+        var isValid = true;
 
-            var firstName = form.first_name.value.trim();
-            if (firstName === '') {
+        // Basic field validations
+        var requiredFields = ['employee_id', 'first_name', 'last_name', 'email', 'department_name', 'mobile_no', 'gender', 'date_of_birth', 'date_of_joining', 'password', 'confirmPassword'];
+
+        requiredFields.forEach(function(field) {
+            var fieldValue = form[field].value.trim();
+            if (fieldValue === '') {
                 isValid = false;
-                document.getElementById('firstNameError').classList.remove('d-none');
+                document.getElementById(field).classList.add('is-invalid');
             } else {
-                document.getElementById('firstNameError').classList.add('d-none');
+                document.getElementById(field).classList.remove('is-invalid');
             }
+        });
 
-            var mobileNo = form.mobile_no.value.trim();
-            if (mobileNo.length !== 10 || !/^\d{10}$/.test(mobileNo)) {
+        // Specific validations
+        var mobileNo = form.mobile_no.value.trim();
+        if (mobileNo.length !== 10 || !/^\d{10}$/.test(mobileNo)) {
+            isValid = false;
+            document.getElementById('mobile_no').classList.add('is-invalid');
+        } else {
+            document.getElementById('mobile_no').classList.remove('is-invalid');
+        }
+
+        var dateOfBirth = form.date_of_birth.value.trim();
+        if (dateOfBirth === '') {
+            isValid = false;
+            document.getElementById('date_of_birth').classList.add('is-invalid');
+        } else {
+            var currentDate = new Date();
+            var selectedDate = new Date(dateOfBirth);
+            if (selectedDate > currentDate) {
                 isValid = false;
-                document.getElementById('mobileNoError').classList.remove('d-none');
-            } else {
-                document.getElementById('mobileNoError').classList.add('d-none');
-            }
-
-            var department = form.department_name.value.trim();
-            if (department === '') {
-                isValid = false;
-                document.getElementById('departmentError').classList.remove('d-none');
-            } else {
-                document.getElementById('departmentError').classList.add('d-none');
-            }
-
-
-            var dateOfBirth = form.date_of_birth.value.trim();
-            if (dateOfBirth === '') {
-                isValid = false;
-                document.getElementById('dateOfBirthError').textContent = 'Date of Birth is required.';
                 document.getElementById('dateOfBirthError').classList.remove('d-none');
             } else {
-                var currentDate = new Date();
-                var selectedDate = new Date(dateOfBirth);
-                if (selectedDate > currentDate) {
-                    isValid = false;
-                    document.getElementById('dateOfBirthError').textContent = 'Date of Birth cannot be in the future.';
-                    document.getElementById('dateOfBirthError').classList.remove('d-none');
-                } else {
-                    document.getElementById('dateOfBirthError').classList.add('d-none');
-                }
+                document.getElementById('dateOfBirthError').classList.add('d-none');
             }
+            document.getElementById('date_of_birth').classList.remove('is-invalid');
+        }
 
+        var dateOfJoining = form.date_of_joining.value.trim();
+        if (dateOfJoining === '') {
+            isValid = false;
+            document.getElementById('date_of_joining').classList.add('is-invalid');
+        } else {
+            document.getElementById('date_of_joining').classList.remove('is-invalid');
+        }
 
-            var dateOfJoining = form.date_of_joining.value.trim();
-            if (dateOfJoining === '') {
-                isValid = false;
-                document.getElementById('dateOfJoiningError').classList.remove('d-none');
-            } else {
-                document.getElementById('dateOfJoiningError').classList.add('d-none');
-            }
-
-
-
-            
-
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
-
-
-
-        document.getElementById('addEmployeeForm').addEventListener('input', function(event) {
-            var isValid = true;
-            var form = this;
-
-            var password = form.password.value.trim();
-            var confirmPassword = form.confirmPassword.value.trim();
-            if (password === '' || password !== confirmPassword) {
-                isValid = false;
-                document.getElementById('passwordError').classList.remove('d-none');
-                document.getElementById('confirmPasswordError').classList.remove('d-none');
-            } else {
-                document.getElementById('passwordError').classList.add('d-none');
-                document.getElementById('confirmPasswordError').classList.add('d-none');
-            }
-
-
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
-
+        // Password confirmation
+        var password = form.password.value.trim();
+        var confirmPassword = form.confirmPassword.value.trim();
+        if (password === '' || password !== confirmPassword) {
+            isValid = false;
+            document.getElementById('password').classList.add('is-invalid');
+            document.getElementById('confirmPassword').classList.add('is-invalid');
+        } else {
+            document.getElementById('password').classList.remove('is-invalid');
+            document.getElementById('confirmPassword').classList.remove('is-invalid');
+        }
 
         // Check uniqueness of Employee ID
-        document.getElementById('employee_id').addEventListener('input', function() {
-            var employeeId = this.value.trim();
-            if (employeeId !== '') {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url('admin/check_unique_employee_id'); ?>',
-                    data: {employee_id: employeeId},
-                    dataType: 'json',
-                    success: function(response) {
-                        if (!response.is_unique) {
-                            document.getElementById('employeeIdError').classList.remove('d-none');
-                            document.getElementById('addEmployeeForm').querySelector('button[type="submit"]').disabled = true;
-                        } else {
-                            document.getElementById('employeeIdError').classList.add('d-none');
-                            document.getElementById('addEmployeeForm').querySelector('button[type="submit"]').disabled = false;
-                        }
+        var employeeId = form.employee_id.value.trim();
+        if (employeeId !== '') {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('admin/check_unique_employee_id'); ?>',
+                data: {employee_id: employeeId},
+                dataType: 'json',
+                async: false, // Ensure synchronous execution
+                success: function(response) {
+                    if (!response.is_unique) {
+                        isValid = false;
+                        document.getElementById('employeeIdError').classList.remove('d-none');
+                        document.getElementById('employee_id').classList.add('is-invalid');
+                    } else {
+                        document.getElementById('employeeIdError').classList.add('d-none');
+                        document.getElementById('employee_id').classList.remove('is-invalid');
                     }
-                });
-            }
-        });
+                }
+            });
+        }
 
-        document.getElementById('email').addEventListener('input', function() {
-            var email = this.value.trim();
-            if (email !== '') {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url('admin/check_unique_email'); ?>',
-                    data: {email: email},
-                    dataType: 'json',
-                    success: function(response) {
-                        if (!response.is_unique) {
-                            document.getElementById('emailError').classList.remove('d-none');
-                            document.getElementById('addEmployeeForm').querySelector('button[type="submit"]').disabled = true;
-                        } else {
-                            document.getElementById('emailError').classList.add('d-none');
-                            document.getElementById('addEmployeeForm').querySelector('button[type="submit"]').disabled = false;
-                        }
+        // Check uniqueness of Email ID
+        var email = form.email.value.trim();
+        if (email !== '') {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('admin/check_unique_email'); ?>',
+                data: {email: email},
+                dataType: 'json',
+                async: false, // Ensure synchronous execution
+                success: function(response) {
+                    if (!response.is_unique) {
+                        isValid = false;
+                        document.getElementById('emailError').classList.remove('d-none');
+                        document.getElementById('email').classList.add('is-invalid');
+                    } else {
+                        document.getElementById('emailError').classList.add('d-none');
+                        document.getElementById('email').classList.remove('is-invalid');
                     }
-                });
-            }
-        });
+                }
+            });
+        }
 
+        if (isValid) {
+            // If all validations pass, submit the form
+            form.submit();
+        }
+    });
 
 
 

@@ -81,7 +81,7 @@
             </div>
 
             <div class="row">
-              <div class="col-sm-6 col-md-3">
+              <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/manage_salary'); ?>">
@@ -104,7 +104,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
+              <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/leave_applications'); ?>">
@@ -127,7 +127,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
+              <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/leave_applications?status=0'); ?>">
@@ -141,7 +141,7 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Pending Leave Request</p>
+                          <p class="card-category">Pending Leave</p>
                           <h4 class="card-title"><?php echo $num_pending_leave; ?></h4>
                         </div>
                       </div>
@@ -150,7 +150,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
+              <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card card-stats card-round">
                   <div class="card-body">
                     <a href="<?php echo base_url('admin/leave_applications?status=1'); ?>">
@@ -164,7 +164,7 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Approved Leave Request</p>
+                          <p class="card-category">Approved Leave</p>
                           <h4 class="card-title"><?php echo $num_approved_leave; ?></h4>
                         </div>
                       </div>

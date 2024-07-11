@@ -41,7 +41,6 @@
                         <th>Salary</th>
                         <th>Allowance</th>
                         <th>Total Salary</th>
-                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>

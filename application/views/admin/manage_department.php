@@ -26,7 +26,6 @@
                                     <tr>
                                         <th class="col-1">#</th>
                                         <th>Department Name</th>
-                                        <th class="col-3">Action</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>

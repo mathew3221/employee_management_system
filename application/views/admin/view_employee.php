@@ -8,8 +8,8 @@
             <td><?php echo $emp['employee_id']; ?></td>
             <th>Photo</th>
             <td style="width: 150px;" colspan="3">
-                <?php if (!empty($emp['photo'])) : ?>
-                    <img src="<?php echo base_url($emp['photo']); ?>" alt="Employee Photo" class="img-fluid rounded" width="80" height="80">
+                <?php if (!empty($emp['photo']) && file_exists('assets/images/'.$emp['photo'])) : ?>
+                    <img src="<?php echo base_url('assets/images/'.$emp['photo']); ?>" alt="Employee Photo" class="img-fluid rounded" width="80" height="80">
                 <?php else : ?>
                     No photo available
                 <?php endif; ?>

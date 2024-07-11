@@ -225,7 +225,7 @@ class Admin extends CI_Controller {
 
             if ($this->upload->do_upload('photo')) {
                 $upload_data = $this->upload->data();
-                $data['photo'] = 'assets/images/' . $upload_data['file_name']; // Update the photo path
+                $data['photo'] =$upload_data['file_name']; // Update the photo path
             } else {
                 $error = $this->upload->display_errors();
                 echo $error; 
@@ -312,7 +312,7 @@ class Admin extends CI_Controller {
 
             if ($this->upload->do_upload('photo')) {
                 $upload_data = $this->upload->data();
-                $data['photo'] = 'assets/images/' . $upload_data['file_name']; // Update the photo path
+                $data['photo'] =$upload_data['file_name']; // Update the photo path
             } else {
                 $error = $this->upload->display_errors();
                 echo $error; 

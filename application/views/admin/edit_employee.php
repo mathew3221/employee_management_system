@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-sm-6 mb-3">
                         <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $employee[0]['last_name']; ?>" required>
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $employee[0]['last_name']; ?>">
                     </div>
                     <div class="col-sm-12 mb-3">
                         <label for="email" class="form-label">Email ID</label>
@@ -60,12 +60,13 @@
                     <div class="col-sm-12 mb-3">
                         <label for="photo" class="form-label">Photo</label>
                         <input type="file" class="form-control" id="photo" name="photo">
-                        <?php if (!empty($employee[0]['photo'])) : ?>
-                            <img src="<?php echo base_url($employee[0]['photo']); ?>" alt="Employee Photo" class="img-fluid mt-2 rounded-circle" width="80" height="80">
+                        <?php if (!empty($employee[0]['photo']) && file_exists('assets/images/'.$employee[0]['photo'])) : ?>
+                            <img src="<?php echo base_url('assets/images/'.$employee[0]['photo']); ?>" alt="Employee Photo" class="img-fluid mt-2 rounded-circle" width="80" height="80">
                         <?php else : ?>
                             <p class="mt-2">No photo available</p>
                         <?php endif; ?>
                     </div>
+
                     <div class="col-sm-6 mb-3">
                         <label for="date_of_birth" class="form-label">Date of Birth</label>
                         <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="<?php echo $employee[0]['date_of_birth']; ?>" required>
