@@ -110,7 +110,7 @@
         data: $(this).serialize(),
         success: function (response) {
           $('#addLeaveTypeModal').modal('hide');
-          location.reload(); // Reload the page to see the new leave type
+          location.reload(); 
         },
         error: function (xhr, status, error) {
           console.error(xhr.responseText);

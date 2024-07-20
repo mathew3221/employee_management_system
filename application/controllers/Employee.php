@@ -22,11 +22,9 @@ class Employee extends CI_Controller {
         $authenticated = $this->Employee_model->authenticate($email, $password);
 
         if ($authenticated) {
-            // Check employee status
             $employee_status = $this->Employee_model->check_employee_status($email);
 
             if ($employee_status == 1) {
-                // Employee status is active, proceed with login
                 $employee_details = $this->Employee_model->get_employee_details($email);
 
                 $this->session->set_userdata('employee_logged_in', [
@@ -38,13 +36,11 @@ class Employee extends CI_Controller {
                 $response['message'] = 'Login successful';
                 echo json_encode($response);
             } else {
-                // Employee status is not active
                 $response['status'] = 'error';
                 $response['message'] = 'Employee is inactive. Please contact your administrator.';
                 echo json_encode($response);
             }
         } else {
-            // Authentication failed
             $response['status'] = 'error';
             $response['message'] = 'Incorrect email or password';
             echo json_encode($response);

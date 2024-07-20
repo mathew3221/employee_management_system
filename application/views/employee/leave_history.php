@@ -19,7 +19,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <table
-                id="multi-filter-select"
+                id="basic-datatables"
                 class="display table table-striped table-hover"
               >
                 <thead>

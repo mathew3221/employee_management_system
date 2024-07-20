@@ -99,8 +99,6 @@ class Admin_model extends CI_Model {
 
 
 
-
-
     function add_employee($data) {
         return $this->db->insert('employees', $data);
     }
@@ -146,7 +144,6 @@ class Admin_model extends CI_Model {
 
 
 
-
     function get_employee_details($id)
     {
         $this->db->select('employees.*,departments.department_name as department_name');
@@ -157,8 +154,6 @@ class Admin_model extends CI_Model {
         return $res;
     }
 
-
-    
 
 
     function update_employee($id, $data) {
@@ -175,10 +170,7 @@ class Admin_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->update('employees', $data);
     }
-
-
-
-
+ 
 
     function salary()
     {
@@ -190,7 +182,6 @@ class Admin_model extends CI_Model {
         $res = $this->db->get()->result_array();
         return $res;
     }
-
 
 
 
@@ -310,10 +301,25 @@ class Admin_model extends CI_Model {
 
 
 
+    public function get_salary_data($from_date, $to_date) {
+        $this->db->select('salary.*, employees.first_name, employees.last_name');
+        $this->db->from('salary');
+        $this->db->join('employees', 'salary.employee = employees.id');
+        $this->db->where('DATE(salary.added_on) >=', $from_date);
+        $this->db->where('DATE(salary.added_on) <=', $to_date);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
-    
-
-
+    public function get_leave_data($from_date, $to_date) {
+        $this->db->select('leave_applications.*, employees.first_name, employees.last_name');
+        $this->db->from('leave_applications');
+        $this->db->join('employees', 'leave_applications.employee_id = employees.id');
+        $this->db->where('DATE(leave_applications.from_date) >=', $from_date);
+        $this->db->where('DATE(leave_applications.to_date) <=', $to_date);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
 
 

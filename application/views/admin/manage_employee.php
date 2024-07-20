@@ -208,7 +208,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="viewemployee">
-                <!-- Content loaded via AJAX -->
+                
             </div>
         </div>
     </div>
@@ -217,7 +217,7 @@
 <!-- Edit Employee Modal -->
 <div class="modal fade" id="editemployeeModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" id="employeeedit">
-        <!-- Content loaded via AJAX -->
+        
     </div>
 </div>
 
@@ -230,7 +230,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="viewsalary">
-                <!-- Content loaded via AJAX -->
+                
             </div>
         </div>
     </div>
@@ -245,7 +245,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="viewleave">
-                <!-- Content loaded via AJAX -->
+                
             </div>
         </div>
     </div>
@@ -254,14 +254,10 @@
 
 
 
-
-
-
-
 <script type="text/javascript">
         document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        event.stopPropagation(); // Stop event propagation
+        event.preventDefault();
+        event.stopPropagation();
 
         var form = this;
         var isValid = true;
@@ -312,7 +308,7 @@
             document.getElementById('date_of_joining').classList.remove('is-invalid');
         }
 
-        // Password confirmation
+
         var password = form.password.value.trim();
         var confirmPassword = form.confirmPassword.value.trim();
         if (password === '' || password !== confirmPassword) {
@@ -332,7 +328,7 @@
                 url: '<?php echo base_url('admin/check_unique_employee_id'); ?>',
                 data: {employee_id: employeeId},
                 dataType: 'json',
-                async: false, // Ensure synchronous execution
+                async: false,
                 success: function(response) {
                     if (!response.is_unique) {
                         isValid = false;
@@ -354,7 +350,7 @@
                 url: '<?php echo base_url('admin/check_unique_email'); ?>',
                 data: {email: email},
                 dataType: 'json',
-                async: false, // Ensure synchronous execution
+                async: false, 
                 success: function(response) {
                     if (!response.is_unique) {
                         isValid = false;
@@ -369,7 +365,6 @@
         }
 
         if (isValid) {
-            // If all validations pass, submit the form
             form.submit();
         }
     });
@@ -417,7 +412,6 @@
                     method:'POST',
                     data:{id:id},
                     success: function (response) {
-                        // Reload the page after successful deletion
                         location.reload();
                     },
                     error: function (xhr, status, error) {
@@ -457,8 +451,6 @@
 
 
 
-
-        // JavaScript function using jQuery for Ajax
         function toggleStatus(id, currentStatus) {
             var newStatus = (currentStatus == 1) ? 0 : 1;
             var confirmation = confirm("Are you sure you want to change the status?");
@@ -469,21 +461,18 @@
                     url: '<?php echo base_url('admin/toggle_status'); ?>',
                     data: {
                         id: id,
-                        employee_status: newStatus // Ensure this matches the parameter name expected by the controller
+                        employee_status: newStatus 
                     },
                     success: function(response) {
-                        alert(response); // Show response message
-                        location.reload(); // Refresh the page or update UI as needed
+                        alert(response); 
+                        location.reload(); 
                     },
                     error: function(xhr, status, error) {
-                        console.error(xhr.responseText); // Log errors to console
-                        // Handle error scenario if needed
+                        console.error(xhr.responseText); 
                     }
                 });
             }
         }
-
-
 
 
 

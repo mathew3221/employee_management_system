@@ -187,13 +187,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Initialize the total salary on page load for add modal
         if (document.getElementById('addEmployeeModal')) {
             addEventListeners('#addEmployeeModal');
             updateTotalSalary('#addEmployeeModal');
         }
 
-        // Initialize the total salary on page load for edit modal
         if (document.getElementById('editsalaryModal')) {
             addEventListeners('#editsalaryModal');
             updateTotalSalary('#editsalaryModal');
@@ -220,8 +218,8 @@
             data: {id: id},
             success: function(response) {
                 $('#editsalary').html(response);
-                addEventListeners('#editsalaryModal'); // Add event listeners for the dynamically loaded content
-                updateTotalSalary('#editsalaryModal'); // Initialize the total salary for the dynamically loaded content
+                addEventListeners('#editsalaryModal');
+                updateTotalSalary('#editsalaryModal'); 
             }
         });
     }
