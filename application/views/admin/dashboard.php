@@ -69,7 +69,7 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Leave Type</p>
+                          <p class="card-category">Leave Types</p>
                           <h4 class="card-title"><?php echo $num_leave_types; ?></h4>
                         </div>
                       </div>
@@ -79,6 +79,7 @@
                 </div>
               </div>
             </div>
+
 
             <div class="row">
               <div class="col-sm-6 col-md-4 col-lg-3">
