@@ -49,7 +49,6 @@ class Admin extends CI_Controller
 
     function dashboard()
     {
-        // Fetch data from the model
         $data['num_employees'] = $this->Admin_model->count_employees();
         $data['num_departments'] = $this->Admin_model->count_departments();
         $data['num_leave_types'] = $this->Admin_model->count_leave_types();
@@ -58,7 +57,6 @@ class Admin extends CI_Controller
         $data['num_pending_leave'] = $this->Admin_model->count_pending_leave();
         $data['num_approved_leave'] = $this->Admin_model->count_approved_leave();
 
-        // Load the dashboard view with the data
         $this->load->view('admin/header');
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/dashboard', $data);
