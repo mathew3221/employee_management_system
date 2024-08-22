@@ -321,6 +321,35 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
 
+    function get_task_list()
+    {
+        $this->db->select('task.*,departments.department_name, employees.first_name, employees.last_name');
+        $this->db->from('task');
+        $this->db->join('departments', 'departments.id = task.department_name');
+        $this->db->join('employees', 'employees.id = task.employee');
+        $this->db->where('task.status', 1);
+        $res = $this->db->get()->result_array();
+        return $res;
+    }
+
+    function save_task($data) {
+        return $this->db->insert('task', $data);
+    }
+
+
+    public function update_task($task_id, $data)
+    {
+        $this->db->where('id', $task_id);
+        return $this->db->update('task', $data);  // Make sure 'tasks' is your table name
+    }
+
+    public function delete_task($task_id)
+    {
+        return $this->db->delete('task', ['id' => $task_id]); // Ensure 'tasks' is your table name
+    }
+
+
+
 
 
 

@@ -52,6 +52,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?php echo base_url('employee/task_list'); ?>">
+                  <i class="far fa-chart-bar"></i>
+                  <p>Task List</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?php echo base_url('employee/change_password'); ?>">
                   <i class="fas fa-key"></i>
                   <p>Change Password</p>
@@ -61,12 +67,6 @@
                 <a href="#">
                   <i class="fas fa-calendar-alt"></i>
                   <p>Leave Request</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Reports</p>
                 </a>
               </li> -->
               <!-- <li class="nav-item">

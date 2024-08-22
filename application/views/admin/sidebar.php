@@ -64,12 +64,12 @@
                   <p>Leave Request</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="<?php echo base_url('admin/report'); ?>">
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/task_manager'); ?>">
                   <i class="far fa-chart-bar"></i>
-                  <p>Reports</p>
+                  <p>Task manager</p>
                 </a>
-              </li> -->
+              </li>
               <!-- <li class="nav-item">
                 <a href="#widgets">
                   <i class="fas fa-desktop"></i>

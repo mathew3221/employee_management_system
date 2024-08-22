@@ -135,6 +135,30 @@ class Employee_model extends CI_Model {
 
 
 
+    public function get_task_list($id) {
+        $this->db->select('*');
+        $this->db->from('task');
+        $this->db->where('task.employee', $id);
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array();
+        }
+    }
+
+
+    public function update_task($id, $task_data) {
+        $this->db->where('id', $id);
+        return $this->db->update('task', $task_data);
+    }
+
+
+
+
+
 
     public function authenticate_by_id($id, $password) {
         $query = $this->db->get_where('employees', array('id' => $id, 'password' => $password));
