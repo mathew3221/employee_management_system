@@ -44,7 +44,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <?php if (empty($employees)) : ?>
+                   <?php if (empty($employees)) : ?>
                         <tr>
                             <td colspan="7" class="text-center">No employee found</td>
                         </tr>
@@ -74,7 +74,7 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php endif; ?>
+                    <?php endif; ?> 
                 </tbody>
               </table>
             </div>
@@ -368,6 +368,23 @@
             form.submit();
         }
     });
+
+
+    $( document ).ready(function() {
+       employee_list();
+    });    
+    
+
+      function employee_list() {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . 'admin/get_employee_list'; ?>',
+            data: {},
+            success: function(response) {
+                $('#employeeslist').html(response);
+            }
+        });
+    }
 
 
 
